@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div id="react-container"></div>
+
+
+    <script src="/javascripts/mainbundle.js"></script>
+  </body>
+</html>
