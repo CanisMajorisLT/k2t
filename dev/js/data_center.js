@@ -32,8 +32,8 @@ module.exports = class DataCenter {
         return Object.assign({}, ...dataToReturn)
     }
 
-    updateData(name) {
-        getStatsFromLocalStorage(name);
+    updateData(...targets) {
+        getStatsFromLocalStorage(...targets);
         updateSubscribers()
 
     }

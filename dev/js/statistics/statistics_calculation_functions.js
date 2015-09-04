@@ -1,16 +1,7 @@
 /**
  * Created by vyt on 2015-08-11.
  */
-var localstr = require("../../../test/utils/localstorageoutput");
-
-var oneTextInputData = JSON.parse('{"textId":"fb47f3c56e89118dc79dea92bdca31a7-1439310680848","startTime":1439310682411,"endTime":1439310698557,"wordStats":[[{"word":"Gana ","input":"G","matches":true,"allWord":false,"time":1439310682411},{"word":"Gana ","input":"Ga","matches":true,"allWord":false,"time":1439310682825},{"word":"Gana ","input":"Gan","matches":true,"allWord":false,"time":1439310683053},{"word":"Gana ","input":"Gana","matches":true,"allWord":false,"time":1439310683220},{"word":"Gana ","input":"Gana ","matches":true,"allWord":true,"time":1439310683464}],[{"word":"nyblogas ","input":"n","matches":true,"allWord":false,"time":1439310685660},{"word":"nyblogas ","input":"ni","matches":false,"allWord":false,"time":1439310686639},{"word":"nyblogas ","input":"nib","matches":false,"allWord":false,"time":1439310686942},{"word":"nyblogas ","input":"nibl","matches":false,"allWord":false,"time":1439310687047},{"word":"nyblogas ","input":"niblo","matches":false,"allWord":false,"time":1439310687197},{"word":"nyblogas ","input":"nibl","matches":false,"allWord":false,"time":1439310687440},{"word":"nyblogas ","input":"nib","matches":false,"allWord":false,"time":1439310687625},{"word":"nyblogas ","input":"ni","matches":false,"allWord":false,"time":1439310687975},{"word":"nyblogas ","input":"n","matches":true,"allWord":false,"time":1439310688313},{"word":"nyblogas ","input":"ny","matches":true,"allWord":false,"time":1439310688950},{"word":"nyblogas ","input":"nyg","matches":false,"allWord":false,"time":1439310689129},{"word":"nyblogas ","input":"ny","matches":true,"allWord":false,"time":1439310689561},{"word":"nyblogas ","input":"nyb","matches":true,"allWord":false,"time":1439310689708},{"word":"nyblogas ","input":"nybl","matches":true,"allWord":false,"time":1439310689911},{"word":"nyblogas ","input":"nyblo","matches":true,"allWord":false,"time":1439310690207},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310690317},{"word":"nyblogas ","input":"nyblogS","matches":false,"allWord":false,"time":1439310690626},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310691033},{"word":"nyblogas ","input":"nyblogA","matches":false,"allWord":false,"time":1439310691644},{"word":"nyblogas ","input":"nyblogAS","matches":false,"allWord":false,"time":1439310691707},{"word":"nyblogas ","input":"nyblogAS ","matches":false,"allWord":true,"time":1439310691982},{"word":"nyblogas ","input":"nyblogAS","matches":false,"allWord":false,"time":1439310692304},{"word":"nyblogas ","input":"nyblogA","matches":false,"allWord":false,"time":1439310692423},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310693034},{"word":"nyblogas ","input":"nybloga","matches":true,"allWord":false,"time":1439310693369},{"word":"nyblogas ","input":"nyblogas","matches":true,"allWord":false,"time":1439310693545},{"word":"nyblogas ","input":"nyblogas ","matches":true,"allWord":true,"time":1439310693969}],[{"word":"tekstuks, ","input":"t","matches":true,"allWord":false,"time":1439310694461},{"word":"tekstuks, ","input":"te","matches":true,"allWord":false,"time":1439310694749},{"word":"tekstuks, ","input":"tek","matches":true,"allWord":false,"time":1439310694876},{"word":"tekstuks, ","input":"teks","matches":true,"allWord":false,"time":1439310695009},{"word":"tekstuks, ","input":"tekst","matches":true,"allWord":false,"time":1439310695286},{"word":"tekstuks, ","input":"tekstu","matches":true,"allWord":false,"time":1439310695420},{"word":"tekstuks, ","input":"tekstuk","matches":true,"allWord":false,"time":1439310696206},{"word":"tekstuks, ","input":"tekstuks","matches":true,"allWord":false,"time":1439310696301},{"word":"tekstuks, ","input":"tekstuks,","matches":true,"allWord":false,"time":1439310696590},{"word":"tekstuks, ","input":"tekstuks, ","matches":true,"allWord":true,"time":1439310696787}],[{"word":"okei?","input":"o","matches":true,"allWord":false,"time":1439310697807},{"word":"okei?","input":"ok","matches":true,"allWord":false,"time":1439310697987},{"word":"okei?","input":"oke","matches":true,"allWord":false,"time":1439310698060},{"word":"okei?","input":"okei","matches":true,"allWord":false,"time":1439310698129},{"word":"okei?","input":"okei?","matches":true,"allWord":true,"time":1439310698557}]]}');
-var oneTextWordsData = oneTextInputData.wordStats;
-
-var twoTextInputData = JSON.parse(localstr.textTwo);
-var twoTextWordsData = twoTextInputData.wordStats;
-
-var threeTextInputData = JSON.parse(localstr.textThree);
-var threeTextWordsData = threeTextInputData.wordStats;
+let trimAndRemoveSigns = require("../utils").trimAndRemoveSigns;
 
 
 let calculateWPM = exports.calculateWPM = (startTime, finishTime, textLengthInWords) => {
@@ -120,20 +111,3 @@ let singleWordStats = exports.singleWordStats = (singleWordArray, trimAndClean=t
     }, {word: null, mistakes: 0, heatMap: [], typingTime: {tempStart: 0, tempEnd: 0}})
 };
 
-
-let trimAndRemoveSigns = word=> {
-    let signsToBeRemoved = [",", ".", ";", ":", "(", ")", "!"];
-    let newWord = word.trim();
-    return newWord.
-        split("").
-        map((letter)=> {
-            if (signsToBeRemoved.indexOf(letter) !== -1) {
-                return ""
-            }
-            return letter
-        }).
-        join("")
-};
-
-//wordsStatisticsCalculator(twoTextWordsData);
-//wordsStatisticsCalculator(threeTextWordsData);

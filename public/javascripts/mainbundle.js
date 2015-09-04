@@ -59,7 +59,7 @@
 	var AfterGameTextStatistics = __webpack_require__(175);
 	var ComprehensiveStatisticsPanel = __webpack_require__(176);
 
-	var DataCenter = __webpack_require__(183);
+	var DataCenter = __webpack_require__(181);
 
 	__webpack_require__(184);
 	__webpack_require__(188);
@@ -21396,12 +21396,21 @@
 
 	    render: function render() {
 	        var gameId = this.props.text.gameId;
-	        return React.createElement(
-	            "div",
-	            null,
-	            React.createElement(LeftSideWordsStatistics, { gameId: gameId, wordData: this.state.wordData, dataCenter: this.props.dataCenter }),
-	            React.createElement(TextHeatMap, { gameId: gameId, updateLeftSideStatistics: this.updateLeftSideStatistics })
-	        );
+	        if (this.state.wordData) {
+	            return React.createElement(
+	                "div",
+	                null,
+	                React.createElement(LeftSideWordsStatistics, { gameId: gameId, wordData: this.state.wordData,
+	                    dataCenter: this.props.dataCenter }),
+	                React.createElement(TextHeatMap, { gameId: gameId, updateLeftSideStatistics: this.updateLeftSideStatistics })
+	            );
+	        } else {
+	            return React.createElement(
+	                "div",
+	                null,
+	                React.createElement(TextHeatMap, { gameId: gameId, updateLeftSideStatistics: this.updateLeftSideStatistics })
+	            );
+	        }
 	    }
 
 	});
@@ -21473,16 +21482,7 @@
 	 */
 	"use strict";
 
-	var localstr = __webpack_require__(171);
-
-	var oneTextInputData = JSON.parse('{"textId":"fb47f3c56e89118dc79dea92bdca31a7-1439310680848","startTime":1439310682411,"endTime":1439310698557,"wordStats":[[{"word":"Gana ","input":"G","matches":true,"allWord":false,"time":1439310682411},{"word":"Gana ","input":"Ga","matches":true,"allWord":false,"time":1439310682825},{"word":"Gana ","input":"Gan","matches":true,"allWord":false,"time":1439310683053},{"word":"Gana ","input":"Gana","matches":true,"allWord":false,"time":1439310683220},{"word":"Gana ","input":"Gana ","matches":true,"allWord":true,"time":1439310683464}],[{"word":"nyblogas ","input":"n","matches":true,"allWord":false,"time":1439310685660},{"word":"nyblogas ","input":"ni","matches":false,"allWord":false,"time":1439310686639},{"word":"nyblogas ","input":"nib","matches":false,"allWord":false,"time":1439310686942},{"word":"nyblogas ","input":"nibl","matches":false,"allWord":false,"time":1439310687047},{"word":"nyblogas ","input":"niblo","matches":false,"allWord":false,"time":1439310687197},{"word":"nyblogas ","input":"nibl","matches":false,"allWord":false,"time":1439310687440},{"word":"nyblogas ","input":"nib","matches":false,"allWord":false,"time":1439310687625},{"word":"nyblogas ","input":"ni","matches":false,"allWord":false,"time":1439310687975},{"word":"nyblogas ","input":"n","matches":true,"allWord":false,"time":1439310688313},{"word":"nyblogas ","input":"ny","matches":true,"allWord":false,"time":1439310688950},{"word":"nyblogas ","input":"nyg","matches":false,"allWord":false,"time":1439310689129},{"word":"nyblogas ","input":"ny","matches":true,"allWord":false,"time":1439310689561},{"word":"nyblogas ","input":"nyb","matches":true,"allWord":false,"time":1439310689708},{"word":"nyblogas ","input":"nybl","matches":true,"allWord":false,"time":1439310689911},{"word":"nyblogas ","input":"nyblo","matches":true,"allWord":false,"time":1439310690207},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310690317},{"word":"nyblogas ","input":"nyblogS","matches":false,"allWord":false,"time":1439310690626},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310691033},{"word":"nyblogas ","input":"nyblogA","matches":false,"allWord":false,"time":1439310691644},{"word":"nyblogas ","input":"nyblogAS","matches":false,"allWord":false,"time":1439310691707},{"word":"nyblogas ","input":"nyblogAS ","matches":false,"allWord":true,"time":1439310691982},{"word":"nyblogas ","input":"nyblogAS","matches":false,"allWord":false,"time":1439310692304},{"word":"nyblogas ","input":"nyblogA","matches":false,"allWord":false,"time":1439310692423},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310693034},{"word":"nyblogas ","input":"nybloga","matches":true,"allWord":false,"time":1439310693369},{"word":"nyblogas ","input":"nyblogas","matches":true,"allWord":false,"time":1439310693545},{"word":"nyblogas ","input":"nyblogas ","matches":true,"allWord":true,"time":1439310693969}],[{"word":"tekstuks, ","input":"t","matches":true,"allWord":false,"time":1439310694461},{"word":"tekstuks, ","input":"te","matches":true,"allWord":false,"time":1439310694749},{"word":"tekstuks, ","input":"tek","matches":true,"allWord":false,"time":1439310694876},{"word":"tekstuks, ","input":"teks","matches":true,"allWord":false,"time":1439310695009},{"word":"tekstuks, ","input":"tekst","matches":true,"allWord":false,"time":1439310695286},{"word":"tekstuks, ","input":"tekstu","matches":true,"allWord":false,"time":1439310695420},{"word":"tekstuks, ","input":"tekstuk","matches":true,"allWord":false,"time":1439310696206},{"word":"tekstuks, ","input":"tekstuks","matches":true,"allWord":false,"time":1439310696301},{"word":"tekstuks, ","input":"tekstuks,","matches":true,"allWord":false,"time":1439310696590},{"word":"tekstuks, ","input":"tekstuks, ","matches":true,"allWord":true,"time":1439310696787}],[{"word":"okei?","input":"o","matches":true,"allWord":false,"time":1439310697807},{"word":"okei?","input":"ok","matches":true,"allWord":false,"time":1439310697987},{"word":"okei?","input":"oke","matches":true,"allWord":false,"time":1439310698060},{"word":"okei?","input":"okei","matches":true,"allWord":false,"time":1439310698129},{"word":"okei?","input":"okei?","matches":true,"allWord":true,"time":1439310698557}]]}');
-	var oneTextWordsData = oneTextInputData.wordStats;
-
-	var twoTextInputData = JSON.parse(localstr.textTwo);
-	var twoTextWordsData = twoTextInputData.wordStats;
-
-	var threeTextInputData = JSON.parse(localstr.textThree);
-	var threeTextWordsData = threeTextInputData.wordStats;
+	var trimAndRemoveSigns = __webpack_require__(172).trimAndRemoveSigns;
 
 	var calculateWPM = exports.calculateWPM = function (startTime, finishTime, textLengthInWords) {
 	    if (!startTime || !finishTime || !textLengthInWords) {
@@ -21582,43 +21582,8 @@
 	    }, { word: null, mistakes: 0, heatMap: [], typingTime: { tempStart: 0, tempEnd: 0 } });
 	};
 
-	var trimAndRemoveSigns = function trimAndRemoveSigns(word) {
-	    var signsToBeRemoved = [",", ".", ";", ":", "(", ")", "!"];
-	    var newWord = word.trim();
-	    return newWord.split("").map(function (letter) {
-	        if (signsToBeRemoved.indexOf(letter) !== -1) {
-	            return "";
-	        }
-	        return letter;
-	    }).join("");
-	};
-
-	//wordsStatisticsCalculator(twoTextWordsData);
-	//wordsStatisticsCalculator(threeTextWordsData);
-
 /***/ },
-/* 171 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var textOne = '{"textId":"fb47f3c56e89118dc79dea92bdca31a7-1439310680848", "textLengthInWords":10,"startTime":1439310682411,"endTime":1439310698557,"wordStats":[[{"word":"Gana ","input":"G","matches":true,"allWord":false,"time":1439310682411},{"word":"Gana ","input":"Ga","matches":true,"allWord":false,"time":1439310682825},{"word":"Gana ","input":"Gan","matches":true,"allWord":false,"time":1439310683053},{"word":"Gana ","input":"Gana","matches":true,"allWord":false,"time":1439310683220},{"word":"Gana ","input":"Gana ","matches":true,"allWord":true,"time":1439310683464}],[{"word":"nyblogas ","input":"n","matches":true,"allWord":false,"time":1439310685660},{"word":"nyblogas ","input":"ni","matches":false,"allWord":false,"time":1439310686639},{"word":"nyblogas ","input":"nib","matches":false,"allWord":false,"time":1439310686942},{"word":"nyblogas ","input":"nibl","matches":false,"allWord":false,"time":1439310687047},{"word":"nyblogas ","input":"niblo","matches":false,"allWord":false,"time":1439310687197},{"word":"nyblogas ","input":"nibl","matches":false,"allWord":false,"time":1439310687440},{"word":"nyblogas ","input":"nib","matches":false,"allWord":false,"time":1439310687625},{"word":"nyblogas ","input":"ni","matches":false,"allWord":false,"time":1439310687975},{"word":"nyblogas ","input":"n","matches":true,"allWord":false,"time":1439310688313},{"word":"nyblogas ","input":"ny","matches":true,"allWord":false,"time":1439310688950},{"word":"nyblogas ","input":"nyg","matches":false,"allWord":false,"time":1439310689129},{"word":"nyblogas ","input":"ny","matches":true,"allWord":false,"time":1439310689561},{"word":"nyblogas ","input":"nyb","matches":true,"allWord":false,"time":1439310689708},{"word":"nyblogas ","input":"nybl","matches":true,"allWord":false,"time":1439310689911},{"word":"nyblogas ","input":"nyblo","matches":true,"allWord":false,"time":1439310690207},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310690317},{"word":"nyblogas ","input":"nyblogS","matches":false,"allWord":false,"time":1439310690626},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310691033},{"word":"nyblogas ","input":"nyblogA","matches":false,"allWord":false,"time":1439310691644},{"word":"nyblogas ","input":"nyblogAS","matches":false,"allWord":false,"time":1439310691707},{"word":"nyblogas ","input":"nyblogAS ","matches":false,"allWord":true,"time":1439310691982},{"word":"nyblogas ","input":"nyblogAS","matches":false,"allWord":false,"time":1439310692304},{"word":"nyblogas ","input":"nyblogA","matches":false,"allWord":false,"time":1439310692423},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310693034},{"word":"nyblogas ","input":"nybloga","matches":true,"allWord":false,"time":1439310693369},{"word":"nyblogas ","input":"nyblogas","matches":true,"allWord":false,"time":1439310693545},{"word":"nyblogas ","input":"nyblogas ","matches":true,"allWord":true,"time":1439310693969}],[{"word":"tekstuks, ","input":"t","matches":true,"allWord":false,"time":1439310694461},{"word":"tekstuks, ","input":"te","matches":true,"allWord":false,"time":1439310694749},{"word":"tekstuks, ","input":"tek","matches":true,"allWord":false,"time":1439310694876},{"word":"tekstuks, ","input":"teks","matches":true,"allWord":false,"time":1439310695009},{"word":"tekstuks, ","input":"tekst","matches":true,"allWord":false,"time":1439310695286},{"word":"tekstuks, ","input":"tekstu","matches":true,"allWord":false,"time":1439310695420},{"word":"tekstuks, ","input":"tekstuk","matches":true,"allWord":false,"time":1439310696206},{"word":"tekstuks, ","input":"tekstuks","matches":true,"allWord":false,"time":1439310696301},{"word":"tekstuks, ","input":"tekstuks,","matches":true,"allWord":false,"time":1439310696590},{"word":"tekstuks, ","input":"tekstuks, ","matches":true,"allWord":true,"time":1439310696787}],[{"word":"okei?","input":"o","matches":true,"allWord":false,"time":1439310697807},{"word":"okei?","input":"ok","matches":true,"allWord":false,"time":1439310697987},{"word":"okei?","input":"oke","matches":true,"allWord":false,"time":1439310698060},{"word":"okei?","input":"okei","matches":true,"allWord":false,"time":1439310698129},{"word":"okei?","input":"okei?","matches":true,"allWord":true,"time":1439310698557}]]}';
-	var textOneId = "fb47f3c56e89118dc79dea92bdca31a7-1439310680848";
-
-	var textTwo = exports.textTwo = '{"textId":"1492bd93bed6f1232939673cecccc517-1439354737769", "textLengthInWords":40,"startTime":1439354739824,"endTime":1439354818299,"wordStats":[[{"word":"The ","input":"T","matches":true,"allWord":false,"time":1439354739824},{"word":"The ","input":"Th","matches":true,"allWord":false,"time":1439354740022},{"word":"The ","input":"The","matches":true,"allWord":false,"time":1439354740243},{"word":"The ","input":"The ","matches":true,"allWord":true,"time":1439354740385}],[{"word":"world ","input":"w","matches":true,"allWord":false,"time":1439354740626},{"word":"world ","input":"wo","matches":true,"allWord":false,"time":1439354740731},{"word":"world ","input":"wor","matches":true,"allWord":false,"time":1439354740847},{"word":"world ","input":"word","matches":false,"allWord":false,"time":1439354740999},{"word":"world ","input":"wordl","matches":false,"allWord":false,"time":1439354741103},{"word":"world ","input":"wordl ","matches":false,"allWord":true,"time":1439354741177},{"word":"world ","input":"wordl ","matches":false,"allWord":true,"time":1439354741601},{"word":"world ","input":"wordl","matches":false,"allWord":false,"time":1439354741733},{"word":"world ","input":"word","matches":false,"allWord":false,"time":1439354741855},{"word":"world ","input":"wor","matches":true,"allWord":false,"time":1439354741976},{"word":"world ","input":"worl","matches":true,"allWord":false,"time":1439354742840},{"word":"world ","input":"world","matches":true,"allWord":false,"time":1439354742962},{"word":"world ","input":"world ","matches":true,"allWord":true,"time":1439354743114}],[{"word":"of ","input":"o","matches":true,"allWord":false,"time":1439354743256},{"word":"of ","input":"of","matches":true,"allWord":false,"time":1439354743314},{"word":"of ","input":"of ","matches":true,"allWord":true,"time":1439354743573}],[{"word":"typing ","input":"t","matches":true,"allWord":false,"time":1439354744263},{"word":"typing ","input":"ty","matches":true,"allWord":false,"time":1439354744385},{"word":"typing ","input":"typ","matches":true,"allWord":false,"time":1439354744607},{"word":"typing ","input":"typi","matches":true,"allWord":false,"time":1439354744817},{"word":"typing ","input":"typin","matches":true,"allWord":false,"time":1439354744988},{"word":"typing ","input":"typing","matches":true,"allWord":false,"time":1439354745045},{"word":"typing ","input":"typing ","matches":true,"allWord":true,"time":1439354745156}],[{"word":"has ","input":"h","matches":true,"allWord":false,"time":1439354745240},{"word":"has ","input":"ha","matches":true,"allWord":false,"time":1439354745340},{"word":"has ","input":"has","matches":true,"allWord":false,"time":1439354745397},{"word":"has ","input":"has ","matches":true,"allWord":true,"time":1439354745486}],[{"word":"changed. ","input":"c","matches":true,"allWord":false,"time":1439354745628},{"word":"changed. ","input":"ch","matches":true,"allWord":false,"time":1439354745738},{"word":"changed. ","input":"chn","matches":false,"allWord":false,"time":1439354745892},{"word":"changed. ","input":"chna","matches":false,"allWord":false,"time":1439354745981},{"word":"changed. ","input":"chnag","matches":false,"allWord":false,"time":1439354746107},{"word":"changed. ","input":"chnage","matches":false,"allWord":false,"time":1439354746244},{"word":"changed. ","input":"chnag","matches":false,"allWord":false,"time":1439354746533},{"word":"changed. ","input":"chna","matches":false,"allWord":false,"time":1439354746665},{"word":"changed. ","input":"chn","matches":false,"allWord":false,"time":1439354746809},{"word":"changed. ","input":"ch","matches":true,"allWord":false,"time":1439354747278},{"word":"changed. ","input":"cha","matches":true,"allWord":false,"time":1439354747949},{"word":"changed. ","input":"chan","matches":true,"allWord":false,"time":1439354748089},{"word":"changed. ","input":"chang","matches":true,"allWord":false,"time":1439354748268},{"word":"changed. ","input":"change","matches":true,"allWord":false,"time":1439354748352},{"word":"changed. ","input":"changed","matches":true,"allWord":false,"time":1439354748511},{"word":"changed. ","input":"changed ","matches":false,"allWord":false,"time":1439354748742},{"word":"changed. ","input":"changed","matches":true,"allWord":false,"time":1439354749141},{"word":"changed. ","input":"changed.","matches":true,"allWord":false,"time":1439354749464},{"word":"changed. ","input":"changed. ","matches":true,"allWord":true,"time":1439354749994}],[{"word":"In ","input":"I","matches":true,"allWord":false,"time":1439354751160},{"word":"In ","input":"In","matches":true,"allWord":false,"time":1439354751419},{"word":"In ","input":"In ","matches":true,"allWord":true,"time":1439354751674}],[{"word":"the ","input":"t","matches":true,"allWord":false,"time":1439354752224},{"word":"the ","input":"th","matches":true,"allWord":false,"time":1439354752413},{"word":"the ","input":"the","matches":true,"allWord":false,"time":1439354752584},{"word":"the ","input":"the ","matches":true,"allWord":true,"time":1439354752773}],[{"word":"1970s, ","input":"1","matches":true,"allWord":false,"time":1439354753188},{"word":"1970s, ","input":"19","matches":true,"allWord":false,"time":1439354753503},{"word":"1970s, ","input":"197","matches":true,"allWord":false,"time":1439354754634},{"word":"1970s, ","input":"1970","matches":true,"allWord":false,"time":1439354754957},{"word":"1970s, ","input":"1970s","matches":true,"allWord":false,"time":1439354755316},{"word":"1970s, ","input":"1970s,","matches":true,"allWord":false,"time":1439354756043},{"word":"1970s, ","input":"1970s, ","matches":true,"allWord":true,"time":1439354756382}],[{"word":"every ","input":"e","matches":true,"allWord":false,"time":1439354756513},{"word":"every ","input":"ev","matches":true,"allWord":false,"time":1439354756639},{"word":"every ","input":"eve","matches":true,"allWord":false,"time":1439354756739},{"word":"every ","input":"ever","matches":true,"allWord":false,"time":1439354757408},{"word":"every ","input":"every","matches":true,"allWord":false,"time":1439354757569},{"word":"every ","input":"every ","matches":true,"allWord":true,"time":1439354757697}],[{"word":"business ","input":"b","matches":true,"allWord":false,"time":1439354758234},{"word":"business ","input":"bu","matches":true,"allWord":false,"time":1439354758355},{"word":"business ","input":"bus","matches":true,"allWord":false,"time":1439354758508},{"word":"business ","input":"busi","matches":true,"allWord":false,"time":1439354758644},{"word":"business ","input":"busin","matches":true,"allWord":false,"time":1439354758839},{"word":"business ","input":"busine","matches":true,"allWord":false,"time":1439354758955},{"word":"business ","input":"busines","matches":true,"allWord":false,"time":1439354759150},{"word":"business ","input":"business","matches":true,"allWord":false,"time":1439354759315},{"word":"business ","input":"business ","matches":true,"allWord":true,"time":1439354759519}],[{"word":"had ","input":"a","matches":false,"allWord":false,"time":1439354759720},{"word":"had ","input":"ad","matches":false,"allWord":false,"time":1439354759856},{"word":"had ","input":"a","matches":false,"allWord":false,"time":1439354760217},{"word":"had ","input":"","matches":true,"allWord":false,"time":1439354760369},{"word":"had ","input":"h","matches":true,"allWord":false,"time":1439354760994},{"word":"had ","input":"ha","matches":true,"allWord":false,"time":1439354761037},{"word":"had ","input":"had","matches":true,"allWord":false,"time":1439354761142},{"word":"had ","input":"had ","matches":true,"allWord":true,"time":1439354761350}],[{"word":"rooms ","input":"t","matches":false,"allWord":false,"time":1439354761523},{"word":"rooms ","input":"to","matches":false,"allWord":false,"time":1439354761640},{"word":"rooms ","input":"t","matches":false,"allWord":false,"time":1439354762035},{"word":"rooms ","input":"","matches":true,"allWord":false,"time":1439354762174},{"word":"rooms ","input":"r","matches":true,"allWord":false,"time":1439354762728},{"word":"rooms ","input":"ro","matches":true,"allWord":false,"time":1439354762817},{"word":"rooms ","input":"roo","matches":true,"allWord":false,"time":1439354763276},{"word":"rooms ","input":"room","matches":true,"allWord":false,"time":1439354763654},{"word":"rooms ","input":"rooms","matches":true,"allWord":false,"time":1439354763839},{"word":"rooms ","input":"rooms ","matches":true,"allWord":true,"time":1439354763971}],[{"word":"full ","input":"f","matches":true,"allWord":false,"time":1439354764848},{"word":"full ","input":"fu","matches":true,"allWord":false,"time":1439354765015},{"word":"full ","input":"ful","matches":true,"allWord":false,"time":1439354765241},{"word":"full ","input":"full","matches":true,"allWord":false,"time":1439354765369},{"word":"full ","input":"full ","matches":true,"allWord":true,"time":1439354765538}],[{"word":"of ","input":"o","matches":true,"allWord":false,"time":1439354765674},{"word":"of ","input":"or","matches":false,"allWord":false,"time":1439354765966},{"word":"of ","input":"or ","matches":false,"allWord":true,"time":1439354766194},{"word":"of ","input":"or","matches":false,"allWord":false,"time":1439354766543},{"word":"of ","input":"o","matches":true,"allWord":false,"time":1439354766688},{"word":"of ","input":"of","matches":true,"allWord":false,"time":1439354767261},{"word":"of ","input":"of ","matches":true,"allWord":true,"time":1439354767400}],[{"word":"secretaries ","input":"s","matches":true,"allWord":false,"time":1439354767548},{"word":"secretaries ","input":"se","matches":true,"allWord":false,"time":1439354767763},{"word":"secretaries ","input":"sec","matches":true,"allWord":false,"time":1439354768017},{"word":"secretaries ","input":"secr","matches":true,"allWord":false,"time":1439354768245},{"word":"secretaries ","input":"secre","matches":true,"allWord":false,"time":1439354768406},{"word":"secretaries ","input":"secret","matches":true,"allWord":false,"time":1439354768576},{"word":"secretaries ","input":"secreta","matches":true,"allWord":false,"time":1439354768639},{"word":"secretaries ","input":"secretar","matches":true,"allWord":false,"time":1439354768844},{"word":"secretaries ","input":"secretari","matches":true,"allWord":false,"time":1439354768939},{"word":"secretaries ","input":"secretarie","matches":true,"allWord":false,"time":1439354769017},{"word":"secretaries ","input":"secretaries","matches":true,"allWord":false,"time":1439354769190},{"word":"secretaries ","input":"secretaries ","matches":true,"allWord":true,"time":1439354769547}],[{"word":"whose ","input":"w","matches":true,"allWord":false,"time":1439354769696},{"word":"whose ","input":"wh","matches":true,"allWord":false,"time":1439354769934},{"word":"whose ","input":"who","matches":true,"allWord":false,"time":1439354770092},{"word":"whose ","input":"whos","matches":true,"allWord":false,"time":1439354770226},{"word":"whose ","input":"whose","matches":true,"allWord":false,"time":1439354770425},{"word":"whose ","input":"whose ","matches":true,"allWord":true,"time":1439354770552}],[{"word":"job ","input":"j","matches":true,"allWord":false,"time":1439354770814},{"word":"job ","input":"jo","matches":true,"allWord":false,"time":1439354771012},{"word":"job ","input":"job","matches":true,"allWord":false,"time":1439354771107},{"word":"job ","input":"job ","matches":true,"allWord":true,"time":1439354771739}],[{"word":"it ","input":"i","matches":true,"allWord":false,"time":1439354771931},{"word":"it ","input":"it","matches":true,"allWord":false,"time":1439354772100},{"word":"it ","input":"it ","matches":true,"allWord":true,"time":1439354772215}],[{"word":"was ","input":"w","matches":true,"allWord":false,"time":1439354772399},{"word":"was ","input":"wa","matches":true,"allWord":false,"time":1439354772569},{"word":"was ","input":"was","matches":true,"allWord":false,"time":1439354772642},{"word":"was ","input":"was ","matches":true,"allWord":true,"time":1439354772794}],[{"word":"to ","input":"t","matches":true,"allWord":false,"time":1439354773068},{"word":"to ","input":"to","matches":true,"allWord":false,"time":1439354773245},{"word":"to ","input":"to ","matches":true,"allWord":true,"time":1439354773352}],[{"word":"type ","input":"t","matches":true,"allWord":false,"time":1439354773602},{"word":"type ","input":"ty","matches":true,"allWord":false,"time":1439354774322},{"word":"type ","input":"typ","matches":true,"allWord":false,"time":1439354774589},{"word":"type ","input":"type","matches":true,"allWord":false,"time":1439354774743},{"word":"type ","input":"type ","matches":true,"allWord":true,"time":1439354774987}],[{"word":"letters ","input":"l","matches":true,"allWord":false,"time":1439354775113},{"word":"letters ","input":"le","matches":true,"allWord":false,"time":1439354775295},{"word":"letters ","input":"let","matches":true,"allWord":false,"time":1439354775669},{"word":"letters ","input":"lett","matches":true,"allWord":false,"time":1439354775783},{"word":"letters ","input":"lette","matches":true,"allWord":false,"time":1439354775883},{"word":"letters ","input":"letter","matches":true,"allWord":false,"time":1439354775946},{"word":"letters ","input":"letters","matches":true,"allWord":false,"time":1439354776196},{"word":"letters ","input":"letters ","matches":true,"allWord":true,"time":1439354776421}],[{"word":"that ","input":"t","matches":true,"allWord":false,"time":1439354776900},{"word":"that ","input":"th","matches":true,"allWord":false,"time":1439354777093},{"word":"that ","input":"tha","matches":true,"allWord":false,"time":1439354777263},{"word":"that ","input":"that","matches":true,"allWord":false,"time":1439354777342},{"word":"that ","input":"that ","matches":true,"allWord":true,"time":1439354777517}],[{"word":"had ","input":"h","matches":true,"allWord":false,"time":1439354778158},{"word":"had ","input":"ha","matches":true,"allWord":false,"time":1439354778242},{"word":"had ","input":"had","matches":true,"allWord":false,"time":1439354778439},{"word":"had ","input":"had ","matches":true,"allWord":true,"time":1439354778575}],[{"word":"been ","input":"b","matches":true,"allWord":false,"time":1439354778695},{"word":"been ","input":"be","matches":true,"allWord":false,"time":1439354778866},{"word":"been ","input":"bee","matches":true,"allWord":false,"time":1439354779043},{"word":"been ","input":"been","matches":true,"allWord":false,"time":1439354779153},{"word":"been ","input":"been ","matches":true,"allWord":true,"time":1439354779339}],[{"word":"hand-written. ","input":"h","matches":true,"allWord":false,"time":1439354779880},{"word":"hand-written. ","input":"ha","matches":true,"allWord":false,"time":1439354779995},{"word":"hand-written. ","input":"han","matches":true,"allWord":false,"time":1439354780063},{"word":"hand-written. ","input":"hand","matches":true,"allWord":false,"time":1439354780210},{"word":"hand-written. ","input":"hand-","matches":true,"allWord":false,"time":1439354780872},{"word":"hand-written. ","input":"hand-w","matches":true,"allWord":false,"time":1439354781021},{"word":"hand-written. ","input":"hand-wr","matches":true,"allWord":false,"time":1439354781424},{"word":"hand-written. ","input":"hand-wri","matches":true,"allWord":false,"time":1439354781579},{"word":"hand-written. ","input":"hand-writ","matches":true,"allWord":false,"time":1439354781712},{"word":"hand-written. ","input":"hand-writt","matches":true,"allWord":false,"time":1439354782253},{"word":"hand-written. ","input":"hand-writte","matches":true,"allWord":false,"time":1439354782478},{"word":"hand-written. ","input":"hand-written","matches":true,"allWord":false,"time":1439354783474},{"word":"hand-written. ","input":"hand-written.","matches":true,"allWord":false,"time":1439354783767},{"word":"hand-written. ","input":"hand-written. ","matches":true,"allWord":true,"time":1439354783930}],[{"word":"They ","input":"T","matches":true,"allWord":false,"time":1439354784529},{"word":"They ","input":"Th","matches":true,"allWord":false,"time":1439354784882},{"word":"They ","input":"The","matches":true,"allWord":false,"time":1439354784966},{"word":"They ","input":"They","matches":true,"allWord":false,"time":1439354785071},{"word":"They ","input":"They ","matches":true,"allWord":true,"time":1439354785161}],[{"word":"were ","input":"w","matches":true,"allWord":false,"time":1439354785419},{"word":"were ","input":"we","matches":true,"allWord":false,"time":1439354786085},{"word":"were ","input":"wer","matches":true,"allWord":false,"time":1439354786261},{"word":"were ","input":"were","matches":true,"allWord":false,"time":1439354786449},{"word":"were ","input":"were ","matches":true,"allWord":true,"time":1439354786543}],[{"word":"copying ","input":"c","matches":true,"allWord":false,"time":1439354786713},{"word":"copying ","input":"co","matches":true,"allWord":false,"time":1439354786860},{"word":"copying ","input":"cop","matches":true,"allWord":false,"time":1439354787042},{"word":"copying ","input":"copy","matches":true,"allWord":false,"time":1439354787271},{"word":"copying ","input":"copyi","matches":true,"allWord":false,"time":1439354787443},{"word":"copying ","input":"copyin","matches":true,"allWord":false,"time":1439354787607},{"word":"copying ","input":"copying","matches":true,"allWord":false,"time":1439354787649},{"word":"copying ","input":"copying ","matches":true,"allWord":true,"time":1439354787860}],[{"word":"the ","input":"t","matches":true,"allWord":false,"time":1439354788295},{"word":"the ","input":"th","matches":true,"allWord":false,"time":1439354788458},{"word":"the ","input":"the","matches":true,"allWord":false,"time":1439354788548},{"word":"the ","input":"the ","matches":true,"allWord":true,"time":1439354788664}],[{"word":"writing ","input":"w","matches":true,"allWord":false,"time":1439354788937},{"word":"writing ","input":"wi","matches":false,"allWord":false,"time":1439354789090},{"word":"writing ","input":"wir","matches":false,"allWord":false,"time":1439354789198},{"word":"writing ","input":"wirt","matches":false,"allWord":false,"time":1439354789437},{"word":"writing ","input":"wir","matches":false,"allWord":false,"time":1439354789732},{"word":"writing ","input":"wi","matches":false,"allWord":false,"time":1439354789878},{"word":"writing ","input":"w","matches":true,"allWord":false,"time":1439354790436},{"word":"writing ","input":"wr","matches":true,"allWord":false,"time":1439354791596},{"word":"writing ","input":"wri","matches":true,"allWord":false,"time":1439354791759},{"word":"writing ","input":"writ","matches":true,"allWord":false,"time":1439354791935},{"word":"writing ","input":"writi","matches":true,"allWord":false,"time":1439354792154},{"word":"writing ","input":"writin","matches":true,"allWord":false,"time":1439354792353},{"word":"writing ","input":"writing","matches":true,"allWord":false,"time":1439354792458},{"word":"writing ","input":"writing ","matches":true,"allWord":true,"time":1439354792595}],[{"word":"into ","input":"i","matches":true,"allWord":false,"time":1439354792687},{"word":"into ","input":"in","matches":true,"allWord":false,"time":1439354792814},{"word":"into ","input":"int","matches":true,"allWord":false,"time":1439354792835},{"word":"into ","input":"int ","matches":false,"allWord":false,"time":1439354792951},{"word":"into ","input":"int o","matches":false,"allWord":true,"time":1439354792977},{"word":"into ","input":"int o","matches":false,"allWord":true,"time":1439354793687},{"word":"into ","input":"int ","matches":false,"allWord":false,"time":1439354793851},{"word":"into ","input":"int","matches":true,"allWord":false,"time":1439354794029},{"word":"into ","input":"intt","matches":false,"allWord":false,"time":1439354794671},{"word":"into ","input":"intto","matches":false,"allWord":true,"time":1439354794845},{"word":"into ","input":"intt","matches":false,"allWord":false,"time":1439354795212},{"word":"into ","input":"int","matches":true,"allWord":false,"time":1439354795374},{"word":"into ","input":"into","matches":true,"allWord":false,"time":1439354795833},{"word":"into ","input":"into ","matches":true,"allWord":true,"time":1439354796014}],[{"word":"a ","input":"a","matches":true,"allWord":false,"time":1439354796129},{"word":"a ","input":"a ","matches":true,"allWord":true,"time":1439354796234}],[{"word":"more ","input":"m","matches":true,"allWord":false,"time":1439354796344},{"word":"more ","input":"mo","matches":true,"allWord":false,"time":1439354796502},{"word":"more ","input":"mor","matches":true,"allWord":false,"time":1439354796538},{"word":"more ","input":"more","matches":true,"allWord":false,"time":1439354796691},{"word":"more ","input":"more ","matches":true,"allWord":true,"time":1439354796796}],[{"word":"readable ","input":"r","matches":true,"allWord":false,"time":1439354796924},{"word":"readable ","input":"re","matches":true,"allWord":false,"time":1439354797084},{"word":"readable ","input":"rea","matches":true,"allWord":false,"time":1439354797252},{"word":"readable ","input":"read","matches":true,"allWord":false,"time":1439354797539},{"word":"readable ","input":"reada","matches":true,"allWord":false,"time":1439354798479},{"word":"readable ","input":"readab","matches":true,"allWord":false,"time":1439354798771},{"word":"readable ","input":"readabl","matches":true,"allWord":false,"time":1439354798869},{"word":"readable ","input":"readable","matches":true,"allWord":false,"time":1439354798947},{"word":"readable ","input":"readable ","matches":true,"allWord":true,"time":1439354799063}],[{"word":"format. ","input":"f","matches":true,"allWord":false,"time":1439354799643},{"word":"format. ","input":"fo","matches":true,"allWord":false,"time":1439354799717},{"word":"format. ","input":"for","matches":true,"allWord":false,"time":1439354799823},{"word":"format. ","input":"form","matches":true,"allWord":false,"time":1439354799880},{"word":"format. ","input":"forma","matches":true,"allWord":false,"time":1439354800001},{"word":"format. ","input":"format","matches":true,"allWord":false,"time":1439354800209},{"word":"format. ","input":"format.","matches":true,"allWord":false,"time":1439354800337},{"word":"format. ","input":"format. ","matches":true,"allWord":true,"time":1439354800628}],[{"word":"In ","input":"I","matches":true,"allWord":false,"time":1439354801305},{"word":"In ","input":"In","matches":true,"allWord":false,"time":1439354801687},{"word":"In ","input":"In ","matches":true,"allWord":true,"time":1439354801761}],[{"word":"the ","input":"t","matches":true,"allWord":false,"time":1439354801813},{"word":"the ","input":"th","matches":true,"allWord":false,"time":1439354801907},{"word":"the ","input":"the","matches":true,"allWord":false,"time":1439354802009},{"word":"the ","input":"the ","matches":true,"allWord":true,"time":1439354802151}],[{"word":"early ","input":"e","matches":true,"allWord":false,"time":1439354802539},{"word":"early ","input":"ea","matches":true,"allWord":false,"time":1439354802726},{"word":"early ","input":"ear","matches":true,"allWord":false,"time":1439354802975},{"word":"early ","input":"earl","matches":true,"allWord":false,"time":1439354803090},{"word":"early ","input":"early","matches":true,"allWord":false,"time":1439354803174},{"word":"early ","input":"early ","matches":true,"allWord":true,"time":1439354803848}],[{"word":"1980s, ","input":"1","matches":true,"allWord":false,"time":1439354804064},{"word":"1980s, ","input":"19","matches":true,"allWord":false,"time":1439354804281},{"word":"1980s, ","input":"198","matches":true,"allWord":false,"time":1439354804528},{"word":"1980s, ","input":"1980","matches":true,"allWord":false,"time":1439354804858},{"word":"1980s, ","input":"1980s","matches":true,"allWord":false,"time":1439354805459},{"word":"1980s, ","input":"1980s,","matches":true,"allWord":false,"time":1439354805631},{"word":"1980s, ","input":"1980s, ","matches":true,"allWord":true,"time":1439354805772}],[{"word":"the ","input":"t","matches":true,"allWord":false,"time":1439354805921},{"word":"the ","input":"th","matches":true,"allWord":false,"time":1439354806010},{"word":"the ","input":"the","matches":true,"allWord":false,"time":1439354806136},{"word":"the ","input":"the ","matches":true,"allWord":true,"time":1439354806795}],[{"word":"personal ","input":"p","matches":true,"allWord":false,"time":1439354806935},{"word":"personal ","input":"pe","matches":true,"allWord":false,"time":1439354807040},{"word":"personal ","input":"per","matches":true,"allWord":false,"time":1439354807109},{"word":"personal ","input":"pers","matches":true,"allWord":false,"time":1439354807274},{"word":"personal ","input":"perso","matches":true,"allWord":false,"time":1439354807359},{"word":"personal ","input":"person","matches":true,"allWord":false,"time":1439354807522},{"word":"personal ","input":"persona","matches":true,"allWord":false,"time":1439354807590},{"word":"personal ","input":"personal","matches":true,"allWord":false,"time":1439354807695},{"word":"personal ","input":"personal ","matches":true,"allWord":true,"time":1439354807774}],[{"word":"computer ","input":"c","matches":true,"allWord":false,"time":1439354807884},{"word":"computer ","input":"co","matches":true,"allWord":false,"time":1439354807921},{"word":"computer ","input":"com","matches":true,"allWord":false,"time":1439354808068},{"word":"computer ","input":"comp","matches":true,"allWord":false,"time":1439354808265},{"word":"computer ","input":"compu","matches":true,"allWord":false,"time":1439354808640},{"word":"computer ","input":"comput","matches":true,"allWord":false,"time":1439354808850},{"word":"computer ","input":"compute","matches":true,"allWord":false,"time":1439354808918},{"word":"computer ","input":"computer","matches":true,"allWord":false,"time":1439354808965},{"word":"computer ","input":"computer ","matches":true,"allWord":true,"time":1439354809092}],[{"word":"became ","input":"b","matches":true,"allWord":false,"time":1439354809734},{"word":"became ","input":"be","matches":true,"allWord":false,"time":1439354809829},{"word":"became ","input":"bec","matches":true,"allWord":false,"time":1439354809945},{"word":"became ","input":"beca","matches":true,"allWord":false,"time":1439354810019},{"word":"became ","input":"becas","matches":false,"allWord":false,"time":1439354810186},{"word":"became ","input":"becasm","matches":false,"allWord":false,"time":1439354810396},{"word":"became ","input":"becasme","matches":false,"allWord":true,"time":1439354810514},{"word":"became ","input":"becasm","matches":false,"allWord":false,"time":1439354810791},{"word":"became ","input":"becas","matches":false,"allWord":false,"time":1439354810948},{"word":"became ","input":"beca","matches":true,"allWord":false,"time":1439354811087},{"word":"became ","input":"becam","matches":true,"allWord":false,"time":1439354811970},{"word":"became ","input":"became","matches":true,"allWord":false,"time":1439354812054},{"word":"became ","input":"became ","matches":true,"allWord":true,"time":1439354812143}],[{"word":"a ","input":"a","matches":true,"allWord":false,"time":1439354812264},{"word":"a ","input":"a ","matches":true,"allWord":true,"time":1439354812368}],[{"word":"common ","input":"c","matches":true,"allWord":false,"time":1439354813150},{"word":"common ","input":"co","matches":true,"allWord":false,"time":1439354813310},{"word":"common ","input":"com","matches":true,"allWord":false,"time":1439354813516},{"word":"common ","input":"comm","matches":true,"allWord":false,"time":1439354813621},{"word":"common ","input":"commo","matches":true,"allWord":false,"time":1439354813822},{"word":"common ","input":"common","matches":true,"allWord":false,"time":1439354813988},{"word":"common ","input":"common ","matches":true,"allWord":true,"time":1439354814062}],[{"word":"office ","input":"o","matches":true,"allWord":false,"time":1439354814200},{"word":"office ","input":"of","matches":true,"allWord":false,"time":1439354814295},{"word":"office ","input":"off","matches":true,"allWord":false,"time":1439354814496},{"word":"office ","input":"offi","matches":true,"allWord":false,"time":1439354814670},{"word":"office ","input":"offic","matches":true,"allWord":false,"time":1439354814776},{"word":"office ","input":"office","matches":true,"allWord":false,"time":1439354815014},{"word":"office ","input":"office ","matches":true,"allWord":true,"time":1439354815119}],[{"word":"machine.","input":"c","matches":false,"allWord":false,"time":1439354815405},{"word":"machine.","input":"ch","matches":false,"allWord":false,"time":1439354815542},{"word":"machine.","input":"cha","matches":false,"allWord":false,"time":1439354815677},{"word":"machine.","input":"chan","matches":false,"allWord":false,"time":1439354815745},{"word":"machine.","input":"cha","matches":false,"allWord":false,"time":1439354816108},{"word":"machine.","input":"ch","matches":false,"allWord":false,"time":1439354816248},{"word":"machine.","input":"c","matches":false,"allWord":false,"time":1439354816439},{"word":"machine.","input":"","matches":true,"allWord":false,"time":1439354816612},{"word":"machine.","input":"m","matches":true,"allWord":false,"time":1439354817061},{"word":"machine.","input":"ma","matches":true,"allWord":false,"time":1439354817150},{"word":"machine.","input":"mac","matches":true,"allWord":false,"time":1439354817453},{"word":"machine.","input":"mach","matches":true,"allWord":false,"time":1439354817735},{"word":"machine.","input":"machi","matches":true,"allWord":false,"time":1439354817843},{"word":"machine.","input":"machin","matches":true,"allWord":false,"time":1439354818000},{"word":"machine.","input":"machine","matches":true,"allWord":false,"time":1439354818073},{"word":"machine.","input":"machine.","matches":true,"allWord":true,"time":1439354818298}]]}';
-	var textTwoId = "1492bd93bed6f1232939673cecccc517-1439354737769";
-
-	var textThree = exports.textThree = '{"textId":"5d8a669f4c6e64c318fad4a060e0d745-1439354653607","textLengthInWords":45,"startTime":1439354655380,"endTime":1439354731348,"wordStats":[[{"word":"The ","input":"T","matches":true,"allWord":false,"time":1439354655380},{"word":"The ","input":"Th","matches":true,"allWord":false,"time":1439354655508},{"word":"The ","input":"The","matches":true,"allWord":false,"time":1439354655731},{"word":"The ","input":"The ","matches":true,"allWord":true,"time":1439354655868}],[{"word":"ref ","input":"r","matches":true,"allWord":false,"time":1439354656019},{"word":"ref ","input":"re","matches":true,"allWord":false,"time":1439354656088},{"word":"ref ","input":"ref","matches":true,"allWord":false,"time":1439354656260},{"word":"ref ","input":"ref ","matches":true,"allWord":true,"time":1439354656444}],[{"word":"attribute ","input":"a","matches":true,"allWord":false,"time":1439354656635},{"word":"attribute ","input":"at","matches":true,"allWord":false,"time":1439354657019},{"word":"attribute ","input":"att","matches":true,"allWord":false,"time":1439354657158},{"word":"attribute ","input":"attr","matches":true,"allWord":false,"time":1439354657317},{"word":"attribute ","input":"attri","matches":true,"allWord":false,"time":1439354657411},{"word":"attribute ","input":"attrib","matches":true,"allWord":false,"time":1439354657557},{"word":"attribute ","input":"attribu","matches":true,"allWord":false,"time":1439354657672},{"word":"attribute ","input":"attribut","matches":true,"allWord":false,"time":1439354657793},{"word":"attribute ","input":"attribute","matches":true,"allWord":false,"time":1439354657987},{"word":"attribute ","input":"attribute ","matches":true,"allWord":true,"time":1439354658105}],[{"word":"can ","input":"c","matches":true,"allWord":false,"time":1439354658318},{"word":"can ","input":"ca","matches":true,"allWord":false,"time":1439354658510},{"word":"can ","input":"can","matches":true,"allWord":false,"time":1439354658627},{"word":"can ","input":"can ","matches":true,"allWord":true,"time":1439354658706}],[{"word":"be ","input":"b","matches":true,"allWord":false,"time":1439354660206},{"word":"be ","input":"be","matches":true,"allWord":false,"time":1439354660279},{"word":"be ","input":"be ","matches":true,"allWord":true,"time":1439354660365}],[{"word":"a ","input":"a","matches":true,"allWord":false,"time":1439354660493},{"word":"a ","input":"a ","matches":true,"allWord":true,"time":1439354660603}],[{"word":"callback ","input":"c","matches":true,"allWord":false,"time":1439354660784},{"word":"callback ","input":"ca","matches":true,"allWord":false,"time":1439354660985},{"word":"callback ","input":"cal","matches":true,"allWord":false,"time":1439354661059},{"word":"callback ","input":"call","matches":true,"allWord":false,"time":1439354661175},{"word":"callback ","input":"callb","matches":true,"allWord":false,"time":1439354661697},{"word":"callback ","input":"callba","matches":true,"allWord":false,"time":1439354661776},{"word":"callback ","input":"callbac","matches":true,"allWord":false,"time":1439354661980},{"word":"callback ","input":"callback","matches":true,"allWord":false,"time":1439354662058},{"word":"callback ","input":"callback ","matches":true,"allWord":true,"time":1439354662137}],[{"word":"function ","input":"f","matches":true,"allWord":false,"time":1439354662243},{"word":"function ","input":"fu","matches":true,"allWord":false,"time":1439354662323},{"word":"function ","input":"fun","matches":true,"allWord":false,"time":1439354662481},{"word":"function ","input":"func","matches":true,"allWord":false,"time":1439354662502},{"word":"function ","input":"funct","matches":true,"allWord":false,"time":1439354662744},{"word":"function ","input":"functi","matches":true,"allWord":false,"time":1439354662804},{"word":"function ","input":"functio","matches":true,"allWord":false,"time":1439354662980},{"word":"function ","input":"function","matches":true,"allWord":false,"time":1439354663133},{"word":"function ","input":"function ","matches":true,"allWord":true,"time":1439354663233}],[{"word":"instead ","input":"i","matches":true,"allWord":false,"time":1439354663342},{"word":"instead ","input":"in","matches":true,"allWord":false,"time":1439354663494},{"word":"instead ","input":"ins","matches":true,"allWord":false,"time":1439354663594},{"word":"instead ","input":"inst","matches":true,"allWord":false,"time":1439354663754},{"word":"instead ","input":"inste","matches":true,"allWord":false,"time":1439354663828},{"word":"instead ","input":"instea","matches":true,"allWord":false,"time":1439354663991},{"word":"instead ","input":"instead","matches":true,"allWord":false,"time":1439354664171},{"word":"instead ","input":"instead ","matches":true,"allWord":true,"time":1439354664276}],[{"word":"of ","input":"o","matches":true,"allWord":false,"time":1439354664364},{"word":"of ","input":"og","matches":false,"allWord":false,"time":1439354664465},{"word":"of ","input":"og ","matches":false,"allWord":true,"time":1439354664580},{"word":"of ","input":"og","matches":false,"allWord":false,"time":1439354665052},{"word":"of ","input":"o","matches":true,"allWord":false,"time":1439354665180},{"word":"of ","input":"","matches":true,"allWord":false,"time":1439354665347},{"word":"of ","input":"o","matches":true,"allWord":false,"time":1439354666108},{"word":"of ","input":"of","matches":true,"allWord":false,"time":1439354666192},{"word":"of ","input":"of ","matches":true,"allWord":true,"time":1439354666494}],[{"word":"a ","input":"a","matches":true,"allWord":false,"time":1439354666651},{"word":"a ","input":"a ","matches":true,"allWord":true,"time":1439354666740}],[{"word":"name. ","input":"g","matches":false,"allWord":false,"time":1439354666985},{"word":"name. ","input":"","matches":true,"allWord":false,"time":1439354667542},{"word":"name. ","input":"n","matches":true,"allWord":false,"time":1439354668483},{"word":"name. ","input":"na","matches":true,"allWord":false,"time":1439354668595},{"word":"name. ","input":"nam","matches":true,"allWord":false,"time":1439354668684},{"word":"name. ","input":"name","matches":true,"allWord":false,"time":1439354668826},{"word":"name. ","input":"name.","matches":true,"allWord":false,"time":1439354669152},{"word":"name. ","input":"name. ","matches":true,"allWord":true,"time":1439354669312}],[{"word":"This ","input":"T","matches":true,"allWord":false,"time":1439354669616},{"word":"This ","input":"Th","matches":true,"allWord":false,"time":1439354669851},{"word":"This ","input":"Thi","matches":true,"allWord":false,"time":1439354670087},{"word":"This ","input":"This","matches":true,"allWord":false,"time":1439354670200},{"word":"This ","input":"This ","matches":true,"allWord":true,"time":1439354670300}],[{"word":"callback ","input":"c","matches":true,"allWord":false,"time":1439354670453},{"word":"callback ","input":"ca","matches":true,"allWord":false,"time":1439354670670},{"word":"callback ","input":"cal","matches":true,"allWord":false,"time":1439354670743},{"word":"callback ","input":"call","matches":true,"allWord":false,"time":1439354670862},{"word":"callback ","input":"callb","matches":true,"allWord":false,"time":1439354671484},{"word":"callback ","input":"callba","matches":true,"allWord":false,"time":1439354671541},{"word":"callback ","input":"callbac","matches":true,"allWord":false,"time":1439354671767},{"word":"callback ","input":"callback","matches":true,"allWord":false,"time":1439354671856},{"word":"callback ","input":"callback ","matches":true,"allWord":true,"time":1439354671940}],[{"word":"will ","input":"a","matches":false,"allWord":false,"time":1439354672077},{"word":"will ","input":"","matches":true,"allWord":false,"time":1439354672585},{"word":"will ","input":"w","matches":true,"allWord":false,"time":1439354672992},{"word":"will ","input":"wi","matches":true,"allWord":false,"time":1439354673148},{"word":"will ","input":"wil","matches":true,"allWord":false,"time":1439354673345},{"word":"will ","input":"will","matches":true,"allWord":false,"time":1439354673472},{"word":"will ","input":"will ","matches":true,"allWord":true,"time":1439354673651}],[{"word":"be ","input":"b","matches":true,"allWord":false,"time":1439354673821},{"word":"be ","input":"be","matches":true,"allWord":false,"time":1439354673910},{"word":"be ","input":"be ","matches":true,"allWord":true,"time":1439354674010}],[{"word":"executed ","input":"e","matches":true,"allWord":false,"time":1439354674227},{"word":"executed ","input":"ex","matches":true,"allWord":false,"time":1439354674448},{"word":"executed ","input":"exe","matches":true,"allWord":false,"time":1439354674690},{"word":"executed ","input":"exec","matches":true,"allWord":false,"time":1439354675360},{"word":"executed ","input":"execu","matches":true,"allWord":false,"time":1439354675512},{"word":"executed ","input":"execut","matches":true,"allWord":false,"time":1439354675715},{"word":"executed ","input":"execute","matches":true,"allWord":false,"time":1439354675804},{"word":"executed ","input":"executed","matches":true,"allWord":false,"time":1439354675978},{"word":"executed ","input":"executed ","matches":true,"allWord":true,"time":1439354676099}],[{"word":"immediately ","input":"i","matches":true,"allWord":false,"time":1439354676368},{"word":"immediately ","input":"im","matches":true,"allWord":false,"time":1439354676650},{"word":"immediately ","input":"imm","matches":true,"allWord":false,"time":1439354676792},{"word":"immediately ","input":"imme","matches":true,"allWord":false,"time":1439354676882},{"word":"immediately ","input":"immed","matches":true,"allWord":false,"time":1439354677048},{"word":"immediately ","input":"immedi","matches":true,"allWord":false,"time":1439354677158},{"word":"immediately ","input":"immedia","matches":true,"allWord":false,"time":1439354677267},{"word":"immediately ","input":"immediat","matches":true,"allWord":false,"time":1439354677537},{"word":"immediately ","input":"immediate","matches":true,"allWord":false,"time":1439354677771},{"word":"immediately ","input":"immediatel","matches":true,"allWord":false,"time":1439354677909},{"word":"immediately ","input":"immediatelt","matches":false,"allWord":false,"time":1439354678029},{"word":"immediately ","input":"immediatelt ","matches":false,"allWord":true,"time":1439354678261},{"word":"immediately ","input":"immediatelt","matches":false,"allWord":false,"time":1439354678681},{"word":"immediately ","input":"immediatel","matches":true,"allWord":false,"time":1439354678821},{"word":"immediately ","input":"immediate","matches":true,"allWord":false,"time":1439354678957},{"word":"immediately ","input":"immediatel","matches":true,"allWord":false,"time":1439354679738},{"word":"immediately ","input":"immediately","matches":true,"allWord":false,"time":1439354679891},{"word":"immediately ","input":"immediately ","matches":true,"allWord":true,"time":1439354680019}],[{"word":"after ","input":"a","matches":true,"allWord":false,"time":1439354680220},{"word":"after ","input":"af","matches":true,"allWord":false,"time":1439354680438},{"word":"after ","input":"aft","matches":true,"allWord":false,"time":1439354680592},{"word":"after ","input":"afte","matches":true,"allWord":false,"time":1439354680767},{"word":"after ","input":"after","matches":true,"allWord":false,"time":1439354680835},{"word":"after ","input":"after ","matches":true,"allWord":true,"time":1439354680977}],[{"word":"the ","input":"t","matches":true,"allWord":false,"time":1439354681092},{"word":"the ","input":"th","matches":true,"allWord":false,"time":1439354681261},{"word":"the ","input":"the","matches":true,"allWord":false,"time":1439354681298},{"word":"the ","input":"the ","matches":true,"allWord":true,"time":1439354681453}],[{"word":"component ","input":"c","matches":true,"allWord":false,"time":1439354681558},{"word":"component ","input":"ci","matches":false,"allWord":false,"time":1439354681648},{"word":"component ","input":"cim","matches":false,"allWord":false,"time":1439354681824},{"word":"component ","input":"cimp","matches":false,"allWord":false,"time":1439354682069},{"word":"component ","input":"cim","matches":false,"allWord":false,"time":1439354682283},{"word":"component ","input":"ci","matches":false,"allWord":false,"time":1439354682417},{"word":"component ","input":"c","matches":true,"allWord":false,"time":1439354682552},{"word":"component ","input":"co","matches":true,"allWord":false,"time":1439354683238},{"word":"component ","input":"com","matches":true,"allWord":false,"time":1439354683452},{"word":"component ","input":"comp","matches":true,"allWord":false,"time":1439354684027},{"word":"component ","input":"compo","matches":true,"allWord":false,"time":1439354684247},{"word":"component ","input":"compon","matches":true,"allWord":false,"time":1439354684492},{"word":"component ","input":"compone","matches":true,"allWord":false,"time":1439354684651},{"word":"component ","input":"componen","matches":true,"allWord":false,"time":1439354684729},{"word":"component ","input":"component","matches":true,"allWord":false,"time":1439354684847},{"word":"component ","input":"component ","matches":true,"allWord":true,"time":1439354684985}],[{"word":"is ","input":"i","matches":true,"allWord":false,"time":1439354685087},{"word":"is ","input":"is","matches":true,"allWord":false,"time":1439354685158},{"word":"is ","input":"is ","matches":true,"allWord":true,"time":1439354685263}],[{"word":"mounted. ","input":"m","matches":true,"allWord":false,"time":1439354685358},{"word":"mounted. ","input":"mo","matches":true,"allWord":false,"time":1439354685560},{"word":"mounted. ","input":"mou","matches":true,"allWord":false,"time":1439354685784},{"word":"mounted. ","input":"moun","matches":true,"allWord":false,"time":1439354685953},{"word":"mounted. ","input":"mount","matches":true,"allWord":false,"time":1439354686195},{"word":"mounted. ","input":"mounte","matches":true,"allWord":false,"time":1439354686304},{"word":"mounted. ","input":"mounted","matches":true,"allWord":false,"time":1439354686487},{"word":"mounted. ","input":"mounted.","matches":true,"allWord":false,"time":1439354687373},{"word":"mounted. ","input":"mounted. ","matches":true,"allWord":true,"time":1439354687501}],[{"word":"The ","input":"T","matches":true,"allWord":false,"time":1439354687722},{"word":"The ","input":"Th","matches":true,"allWord":false,"time":1439354687909},{"word":"The ","input":"The","matches":true,"allWord":false,"time":1439354688153},{"word":"The ","input":"The ","matches":true,"allWord":true,"time":1439354688322}],[{"word":"referenced ","input":"r","matches":true,"allWord":false,"time":1439354688476},{"word":"referenced ","input":"re","matches":true,"allWord":false,"time":1439354688699},{"word":"referenced ","input":"ref","matches":true,"allWord":false,"time":1439354688911},{"word":"referenced ","input":"refe","matches":true,"allWord":false,"time":1439354689557},{"word":"referenced ","input":"refer","matches":true,"allWord":false,"time":1439354689785},{"word":"referenced ","input":"refere","matches":true,"allWord":false,"time":1439354689961},{"word":"referenced ","input":"referen","matches":true,"allWord":false,"time":1439354690133},{"word":"referenced ","input":"referenc","matches":true,"allWord":false,"time":1439354690275},{"word":"referenced ","input":"reference","matches":true,"allWord":false,"time":1439354690494},{"word":"referenced ","input":"referenced","matches":true,"allWord":false,"time":1439354690669},{"word":"referenced ","input":"referenced ","matches":true,"allWord":true,"time":1439354690784}],[{"word":"component ","input":"c","matches":true,"allWord":false,"time":1439354691099},{"word":"component ","input":"co","matches":true,"allWord":false,"time":1439354691246},{"word":"component ","input":"com","matches":true,"allWord":false,"time":1439354691422},{"word":"component ","input":"comp","matches":true,"allWord":false,"time":1439354691633},{"word":"component ","input":"compo","matches":true,"allWord":false,"time":1439354691815},{"word":"component ","input":"compon","matches":true,"allWord":false,"time":1439354692044},{"word":"component ","input":"compone","matches":true,"allWord":false,"time":1439354692305},{"word":"component ","input":"componen","matches":true,"allWord":false,"time":1439354692440},{"word":"component ","input":"component","matches":true,"allWord":false,"time":1439354692566},{"word":"component ","input":"component ","matches":true,"allWord":true,"time":1439354692706}],[{"word":"will ","input":"w","matches":true,"allWord":false,"time":1439354692838},{"word":"will ","input":"wi","matches":true,"allWord":false,"time":1439354692937},{"word":"will ","input":"wil","matches":true,"allWord":false,"time":1439354693119},{"word":"will ","input":"will","matches":true,"allWord":false,"time":1439354693238},{"word":"will ","input":"will ","matches":true,"allWord":true,"time":1439354693419}],[{"word":"be ","input":"b","matches":true,"allWord":false,"time":1439354693685},{"word":"be ","input":"be","matches":true,"allWord":false,"time":1439354693758},{"word":"be ","input":"be ","matches":true,"allWord":true,"time":1439354693843}],[{"word":"passed ","input":"p","matches":true,"allWord":false,"time":1439354694198},{"word":"passed ","input":"pa","matches":true,"allWord":false,"time":1439354694351},{"word":"passed ","input":"pas","matches":true,"allWord":false,"time":1439354694555},{"word":"passed ","input":"pass","matches":true,"allWord":false,"time":1439354694705},{"word":"passed ","input":"passe","matches":true,"allWord":false,"time":1439354694870},{"word":"passed ","input":"passed","matches":true,"allWord":false,"time":1439354695027},{"word":"passed ","input":"passed ","matches":true,"allWord":true,"time":1439354695147}],[{"word":"in ","input":"i","matches":true,"allWord":false,"time":1439354695328},{"word":"in ","input":"in","matches":true,"allWord":false,"time":1439354695507},{"word":"in ","input":"in ","matches":true,"allWord":true,"time":1439354695612}],[{"word":"as ","input":"a","matches":true,"allWord":false,"time":1439354695874},{"word":"as ","input":"as","matches":true,"allWord":false,"time":1439354695952},{"word":"as ","input":"as ","matches":true,"allWord":true,"time":1439354696084}],[{"word":"a ","input":"a","matches":true,"allWord":false,"time":1439354696220},{"word":"a ","input":"a ","matches":true,"allWord":true,"time":1439354696335}],[{"word":"parameter, ","input":"p","matches":true,"allWord":false,"time":1439354696498},{"word":"parameter, ","input":"pa","matches":true,"allWord":false,"time":1439354696989},{"word":"parameter, ","input":"par","matches":true,"allWord":false,"time":1439354697186},{"word":"parameter, ","input":"para","matches":true,"allWord":false,"time":1439354697568},{"word":"parameter, ","input":"param","matches":true,"allWord":false,"time":1439354697836},{"word":"parameter, ","input":"parame","matches":true,"allWord":false,"time":1439354697954},{"word":"parameter, ","input":"paramet","matches":true,"allWord":false,"time":1439354698086},{"word":"parameter, ","input":"paramete","matches":true,"allWord":false,"time":1439354698207},{"word":"parameter, ","input":"parameter","matches":true,"allWord":false,"time":1439354698274},{"word":"parameter, ","input":"parameter,","matches":true,"allWord":false,"time":1439354698506},{"word":"parameter, ","input":"parameter, ","matches":true,"allWord":true,"time":1439354698680}],[{"word":"and ","input":"a","matches":true,"allWord":false,"time":1439354698929},{"word":"and ","input":"an","matches":true,"allWord":false,"time":1439354699081},{"word":"and ","input":"and","matches":true,"allWord":false,"time":1439354699165},{"word":"and ","input":"and ","matches":true,"allWord":true,"time":1439354699301}],[{"word":"the ","input":"t","matches":true,"allWord":false,"time":1439354699585},{"word":"the ","input":"th","matches":true,"allWord":false,"time":1439354699761},{"word":"the ","input":"the","matches":true,"allWord":false,"time":1439354699840},{"word":"the ","input":"the ","matches":true,"allWord":true,"time":1439354699966}],[{"word":"callback ","input":"c","matches":true,"allWord":false,"time":1439354700317},{"word":"callback ","input":"","matches":true,"allWord":false,"time":1439354700781},{"word":"callback ","input":"c","matches":true,"allWord":false,"time":1439354701265},{"word":"callback ","input":"ca","matches":true,"allWord":false,"time":1439354701505},{"word":"callback ","input":"cal","matches":true,"allWord":false,"time":1439354701645},{"word":"callback ","input":"call","matches":true,"allWord":false,"time":1439354701753},{"word":"callback ","input":"callb","matches":true,"allWord":false,"time":1439354701995},{"word":"callback ","input":"callba","matches":true,"allWord":false,"time":1439354702053},{"word":"callback ","input":"callbac","matches":true,"allWord":false,"time":1439354702296},{"word":"callback ","input":"callbac ","matches":false,"allWord":false,"time":1439354702618},{"word":"callback ","input":"callbac","matches":true,"allWord":false,"time":1439354703136},{"word":"callback ","input":"callback","matches":true,"allWord":false,"time":1439354703596},{"word":"callback ","input":"callback ","matches":true,"allWord":true,"time":1439354703919}],[{"word":"function ","input":"f","matches":true,"allWord":false,"time":1439354704060},{"word":"function ","input":"fu","matches":true,"allWord":false,"time":1439354704217},{"word":"function ","input":"fun","matches":true,"allWord":false,"time":1439354704377},{"word":"function ","input":"func","matches":true,"allWord":false,"time":1439354704425},{"word":"function ","input":"funct","matches":true,"allWord":false,"time":1439354704679},{"word":"function ","input":"functi","matches":true,"allWord":false,"time":1439354704803},{"word":"function ","input":"functio","matches":true,"allWord":false,"time":1439354704993},{"word":"function ","input":"function","matches":true,"allWord":false,"time":1439354705226},{"word":"function ","input":"function ","matches":true,"allWord":true,"time":1439354705431}],[{"word":"may ","input":"m","matches":true,"allWord":false,"time":1439354705697},{"word":"may ","input":"ma","matches":true,"allWord":false,"time":1439354705844},{"word":"may ","input":"may","matches":true,"allWord":false,"time":1439354706052},{"word":"may ","input":"may ","matches":true,"allWord":true,"time":1439354706773}],[{"word":"use ","input":"u","matches":true,"allWord":false,"time":1439354707062},{"word":"use ","input":"us","matches":true,"allWord":false,"time":1439354707186},{"word":"use ","input":"use","matches":true,"allWord":false,"time":1439354707375},{"word":"use ","input":"use ","matches":true,"allWord":true,"time":1439354707509}],[{"word":"the ","input":"t","matches":true,"allWord":false,"time":1439354707680},{"word":"the ","input":"th","matches":true,"allWord":false,"time":1439354707857},{"word":"the ","input":"the","matches":true,"allWord":false,"time":1439354707959},{"word":"the ","input":"the ","matches":true,"allWord":true,"time":1439354708144}],[{"word":"component ","input":"c","matches":true,"allWord":false,"time":1439354708417},{"word":"component ","input":"co","matches":true,"allWord":false,"time":1439354708559},{"word":"component ","input":"com","matches":true,"allWord":false,"time":1439354708770},{"word":"component ","input":"comp","matches":true,"allWord":false,"time":1439354709017},{"word":"component ","input":"compo","matches":true,"allWord":false,"time":1439354709217},{"word":"component ","input":"compon","matches":true,"allWord":false,"time":1439354710176},{"word":"component ","input":"compone","matches":true,"allWord":false,"time":1439354710708},{"word":"component ","input":"componen","matches":true,"allWord":false,"time":1439354710857},{"word":"component ","input":"component","matches":true,"allWord":false,"time":1439354711065},{"word":"component ","input":"component ","matches":true,"allWord":true,"time":1439354711212}],[{"word":"immediately, ","input":"m","matches":false,"allWord":false,"time":1439354711442},{"word":"immediately, ","input":"me","matches":false,"allWord":false,"time":1439354711589},{"word":"immediately, ","input":"m","matches":false,"allWord":false,"time":1439354712028},{"word":"immediately, ","input":"","matches":true,"allWord":false,"time":1439354712217},{"word":"immediately, ","input":"i","matches":true,"allWord":false,"time":1439354712873},{"word":"immediately, ","input":"im","matches":true,"allWord":false,"time":1439354713568},{"word":"immediately, ","input":"imm","matches":true,"allWord":false,"time":1439354713714},{"word":"immediately, ","input":"imme","matches":true,"allWord":false,"time":1439354713877},{"word":"immediately, ","input":"immed","matches":true,"allWord":false,"time":1439354714065},{"word":"immediately, ","input":"immedi","matches":true,"allWord":false,"time":1439354714186},{"word":"immediately, ","input":"immedia","matches":true,"allWord":false,"time":1439354714307},{"word":"immediately, ","input":"immediat","matches":true,"allWord":false,"time":1439354714751},{"word":"immediately, ","input":"immediate","matches":true,"allWord":false,"time":1439354714973},{"word":"immediately, ","input":"immediatel","matches":true,"allWord":false,"time":1439354715127},{"word":"immediately, ","input":"immediatelt","matches":false,"allWord":false,"time":1439354715760},{"word":"immediately, ","input":"immediatel","matches":true,"allWord":false,"time":1439354716155},{"word":"immediately, ","input":"immediately","matches":true,"allWord":false,"time":1439354716260},{"word":"immediately, ","input":"immediately,","matches":true,"allWord":false,"time":1439354716612},{"word":"immediately, ","input":"immediately, ","matches":true,"allWord":true,"time":1439354716874}],[{"word":"or ","input":"o","matches":true,"allWord":false,"time":1439354717927},{"word":"or ","input":"ot","matches":false,"allWord":false,"time":1439354718072},{"word":"or ","input":"ot ","matches":false,"allWord":true,"time":1439354718290},{"word":"or ","input":"ot","matches":false,"allWord":false,"time":1439354718664},{"word":"or ","input":"o","matches":true,"allWord":false,"time":1439354719124},{"word":"or ","input":"or","matches":true,"allWord":false,"time":1439354719250},{"word":"or ","input":"or ","matches":true,"allWord":true,"time":1439354719390}],[{"word":"save ","input":"s","matches":true,"allWord":false,"time":1439354719748},{"word":"save ","input":"sa","matches":true,"allWord":false,"time":1439354719972},{"word":"save ","input":"sav","matches":true,"allWord":false,"time":1439354720589},{"word":"save ","input":"save","matches":true,"allWord":false,"time":1439354720678},{"word":"save ","input":"save ","matches":true,"allWord":true,"time":1439354720798}],[{"word":"the ","input":"t","matches":true,"allWord":false,"time":1439354720903},{"word":"the ","input":"th","matches":true,"allWord":false,"time":1439354721074},{"word":"the ","input":"the","matches":true,"allWord":false,"time":1439354721147},{"word":"the ","input":"the ","matches":true,"allWord":true,"time":1439354721241}],[{"word":"reference ","input":"r","matches":true,"allWord":false,"time":1439354721401},{"word":"reference ","input":"re","matches":true,"allWord":false,"time":1439354721575},{"word":"reference ","input":"ref","matches":true,"allWord":false,"time":1439354721759},{"word":"reference ","input":"refe","matches":true,"allWord":false,"time":1439354722044},{"word":"reference ","input":"refer","matches":true,"allWord":false,"time":1439354722288},{"word":"reference ","input":"refere","matches":true,"allWord":false,"time":1439354722476},{"word":"reference ","input":"referen","matches":true,"allWord":false,"time":1439354722608},{"word":"reference ","input":"referenc","matches":true,"allWord":false,"time":1439354722768},{"word":"reference ","input":"reference","matches":true,"allWord":false,"time":1439354722993},{"word":"reference ","input":"reference ","matches":true,"allWord":true,"time":1439354723108}],[{"word":"for ","input":"f","matches":true,"allWord":false,"time":1439354723234},{"word":"for ","input":"fo","matches":true,"allWord":false,"time":1439354723360},{"word":"for ","input":"for","matches":true,"allWord":false,"time":1439354723433},{"word":"for ","input":"for ","matches":true,"allWord":true,"time":1439354723538}],[{"word":"future ","input":"f","matches":true,"allWord":false,"time":1439354724542},{"word":"future ","input":"fu","matches":true,"allWord":false,"time":1439354724700},{"word":"future ","input":"fut","matches":true,"allWord":false,"time":1439354724877},{"word":"future ","input":"futu","matches":true,"allWord":false,"time":1439354725005},{"word":"future ","input":"futur","matches":true,"allWord":false,"time":1439354725104},{"word":"future ","input":"future","matches":true,"allWord":false,"time":1439354725293},{"word":"future ","input":"future ","matches":true,"allWord":true,"time":1439354725803}],[{"word":"use ","input":"u","matches":true,"allWord":false,"time":1439354725979},{"word":"use ","input":"us","matches":true,"allWord":false,"time":1439354726141},{"word":"use ","input":"use","matches":true,"allWord":false,"time":1439354726325},{"word":"use ","input":"use ","matches":true,"allWord":true,"time":1439354727062}],[{"word":"(or ","input":"(","matches":true,"allWord":false,"time":1439354727424},{"word":"(or ","input":"(o","matches":true,"allWord":false,"time":1439354727803},{"word":"(or ","input":"(or","matches":true,"allWord":false,"time":1439354727985},{"word":"(or ","input":"(or ","matches":true,"allWord":true,"time":1439354728157}],[{"word":"both).","input":"b","matches":true,"allWord":false,"time":1439354728348},{"word":"both).","input":"bo","matches":true,"allWord":false,"time":1439354728411},{"word":"both).","input":"bot","matches":true,"allWord":false,"time":1439354728544},{"word":"both).","input":"both","matches":true,"allWord":false,"time":1439354728644},{"word":"both).","input":"both)","matches":true,"allWord":false,"time":1439354729121},{"word":"both).","input":"both)/","matches":false,"allWord":true,"time":1439354729472},{"word":"both).","input":"both)","matches":true,"allWord":false,"time":1439354730232},{"word":"both).","input":"both).","matches":true,"allWord":true,"time":1439354731347}]]}';
-	var textThreeId = "5d8a669f4c6e64c318fad4a060e0d745-1439354653607";
-
-	var localStorage = {};
-	localStorage[textOneId] = textOne;
-	localStorage[textTwoId] = textTwo;
-	localStorage[textThreeId] = textThree;
-
-	exports.localStorage = localStorage;
-
-/***/ },
+/* 171 */,
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -21663,26 +21628,84 @@
 	    });
 	};
 
+	exports.trimAndRemoveSigns = function (word) {
+	    var signsToBeRemoved = [",", ".", ";", ":", "(", ")", "!"];
+	    var newWord = word.trim();
+	    return newWord.split("").map(function (letter) {
+	        if (signsToBeRemoved.indexOf(letter) !== -1) {
+	            return "";
+	        }
+	        return letter;
+	    }).join("");
+	};
+
 /***/ },
 /* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
+	var trimAndRemoveSigns = __webpack_require__(172).trimAndRemoveSigns;
 
 	var LeftSideStats = React.createClass({
-	  displayName: 'LeftSideStats',
+	    displayName: "LeftSideStats",
 
-	  render: function render() {
-	    // fecth more comprehensive data about the word
-	    return React.createElement(
-	      'div',
-	      null,
-	      'Dem nice word stats:',
-	      this.props.wordData
-	    );
-	  }
+	    render: function render() {
+	        // fecth more comprehensive data about the word // reikia per propsus sita paduoti ciuju data
+	        var dc = this.props.dataCenter;
+	        var allWordsData = dc.getData(dc.sc.WORDS_SPECIFIC);
+	        var moreData = allWordsData[trimAndRemoveSigns(this.props.wordData.word)];
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement(
+	                "div",
+	                null,
+	                "Dem nice word stats:"
+	            ),
+	            React.createElement(
+	                "span",
+	                null,
+	                this.props.wordData
+	            ),
+	            React.createElement(
+	                "div",
+	                null,
+	                "Additional info"
+	            ),
+	            React.createElement(
+	                "ul",
+	                null,
+	                React.createElement(
+	                    "li",
+	                    null,
+	                    "count: ",
+	                    moreData.count
+	                ),
+	                React.createElement(
+	                    "li",
+	                    null,
+	                    "mistakes: ",
+	                    moreData.mistakes
+	                ),
+	                React.createElement(
+	                    "li",
+	                    null,
+	                    "fastest typing time: ",
+	                    moreData.typingTime.fastest
+	                ),
+	                React.createElement(
+	                    "li",
+	                    null,
+	                    "slowest typing time: ",
+	                    moreData.typingTime.all.reduce(function (p, c) {
+	                        return c > p ? c : p;
+	                    })
+	                )
+	            )
+	        );
+	    }
 
 	});
 
@@ -21752,10 +21775,10 @@
 	"use strict";
 
 	var React = __webpack_require__(1);
-	var GameStatistics = __webpack_require__(180);
-	var TextStatistics = __webpack_require__(177);
-	var WordStatistics = __webpack_require__(181);
-	var OverallStatistics = __webpack_require__(182);
+	var GameStatistics = __webpack_require__(177);
+	var TextStatistics = __webpack_require__(178);
+	var WordStatistics = __webpack_require__(179);
+	var OverallStatistics = __webpack_require__(180);
 
 	var MainStatisticsPanel = module.exports = React.createClass({
 	    displayName: "exports",
@@ -21789,6 +21812,23 @@
 
 	var React = __webpack_require__(1);
 
+	var GameStatistics = module.exports = React.createClass({
+	    displayName: "exports",
+
+	    render: function render() {
+	        console.log("Game statistics: ", this.props.data);
+	        return React.createElement("div", null);
+	    }
+	});
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
 	var TextStatistic = module.exports = React.createClass({
 	    displayName: "exports",
 
@@ -21800,12 +21840,162 @@
 	});
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var statisticFunctions = __webpack_require__(179);
+	var React = __webpack_require__(1);
+
+	var WordsStatistics = module.exports = React.createClass({
+	    displayName: "exports",
+
+	    render: function render() {
+	        console.log("Words statistics: ", this.props.data);
+
+	        return React.createElement("div", null);
+	    }
+	});
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var OverallStatistics = module.exports = React.createClass({
+	    displayName: "exports",
+
+	    render: function render() {
+	        console.log("Overall statistics: ", this.props.data);
+
+	        return React.createElement("div", null);
+	    }
+	});
+
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by vyt on 2015-09-03.
+	 */
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var statistics = __webpack_require__(182);
+	var gameSpecificsStats = statistics.gameSpecificsStats;
+	var textSpecificStats = statistics.textSpecificStats;
+	var wordsSpecificStats = statistics.wordsSpecificStats;
+	var overAllStats = statistics.overAllStats;
+
+	/*
+	 * - sends out data to subscribers when data is updated;
+	 * - sends data on request (by some query); */
+	module.exports = (function () {
+	    function DataCenter() {
+	        _classCallCheck(this, DataCenter);
+
+	        // sources
+	        this.sc = {
+	            TEXTS_SPECIFIC: 'dataTextSpecific',
+	            WORDS_SPECIFIC: 'dataWordsSpecific',
+	            OVER_ALL: 'overAll'
+	        };
+
+	        this.subscribers = [];
+	        this._data = this.getStatsFromLocalStorage(this.sc.TEXTS_SPECIFIC, this.sc.WORDS_SPECIFIC, this.sc.OVER_ALL); // paimam kol kas i localstorago ir praranimas fjas
+	    }
+
+	    _createClass(DataCenter, [{
+	        key: 'getAllState',
+	        value: function getAllState() {
+	            return Object.assign({}, this._data);
+	        }
+	    }, {
+	        key: 'getData',
+	        value: function getData() {
+	            var _this = this;
+
+	            for (var _len = arguments.length, dataSources = Array(_len), _key = 0; _key < _len; _key++) {
+	                dataSources[_key] = arguments[_key];
+	            }
+
+	            var dataToReturn = dataSources.map(function (src) {
+	                return _this._data[src];
+	            });
+	            return Object.assign.apply(Object, [{}].concat(_toConsumableArray(dataToReturn)));
+	        }
+	    }, {
+	        key: 'updateData',
+	        value: function updateData() {
+	            getStatsFromLocalStorage.apply(undefined, arguments);
+	            updateSubscribers();
+	        }
+	    }, {
+	        key: 'updateSubscribers',
+	        value: function updateSubscribers() {
+	            var _this2 = this;
+
+	            this.subscribers.forEach(function (subObj) {
+	                var dataToReturn = subObj.dataSources.map(function (src) {
+	                    return _this2._data[src];
+	                });
+	                return subObj.callback(Object.assign.apply(Object, [{}].concat(_toConsumableArray(dataToReturn))));
+	            });
+	        }
+
+	        // {callback: fnc, dataSources: [this.dataTextSpecific, this.dataWordsSpecific, this.overAll]}
+	    }, {
+	        key: 'subscribe',
+	        value: function subscribe(subObj) {
+	            this.subscribers.push(subObj);
+	        }
+	    }, {
+	        key: 'unsubscribe',
+	        value: function unsubscribe(subObj) {
+	            var subIndex = this.subscribers.indexOf(subObj);
+	            this.subscribers.splice(subIndex, 1);
+	        }
+	    }, {
+	        key: 'getStatsFromLocalStorage',
+	        value: function getStatsFromLocalStorage() {
+	            // this is required for other stat functions to work
+	            var dataGameSpecific = gameSpecificsStats(localStorage);
+
+	            for (var _len2 = arguments.length, targets = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                targets[_key2] = arguments[_key2];
+	            }
+
+	            var dataTextSpecific = targets.indexOf("dataTextSpecific") >= 0 && textSpecificStats(dataGameSpecific) || this._data["dataTextSpecific"];
+	            var dataWordsSpecific = targets.indexOf("dataWordsSpecific") >= 0 && wordsSpecificStats(dataGameSpecific) || this._data["dataWordsSpecific"];
+	            var overAll = targets.indexOf("overAll") >= 0 && overAllStats(dataGameSpecific) || this._data["overAll"];
+	            return {
+	                dataGameSpecific: dataGameSpecific,
+	                dataTextSpecific: dataTextSpecific,
+	                dataWordsSpecific: dataWordsSpecific,
+	                overAll: overAll
+	            };
+	        }
+	    }]);
+
+	    return DataCenter;
+	})();
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var statisticFunctions = __webpack_require__(183);
 
 	//TODO: implamentutoi react interfacus, istestuoti ar attitinka heatmapai ir ktia rodikliai
 	/**
@@ -21970,7 +22160,7 @@
 	};
 
 /***/ },
-/* 179 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21978,16 +22168,7 @@
 	 */
 	"use strict";
 
-	var localstr = __webpack_require__(171);
-
-	var oneTextInputData = JSON.parse('{"textId":"fb47f3c56e89118dc79dea92bdca31a7-1439310680848","startTime":1439310682411,"endTime":1439310698557,"wordStats":[[{"word":"Gana ","input":"G","matches":true,"allWord":false,"time":1439310682411},{"word":"Gana ","input":"Ga","matches":true,"allWord":false,"time":1439310682825},{"word":"Gana ","input":"Gan","matches":true,"allWord":false,"time":1439310683053},{"word":"Gana ","input":"Gana","matches":true,"allWord":false,"time":1439310683220},{"word":"Gana ","input":"Gana ","matches":true,"allWord":true,"time":1439310683464}],[{"word":"nyblogas ","input":"n","matches":true,"allWord":false,"time":1439310685660},{"word":"nyblogas ","input":"ni","matches":false,"allWord":false,"time":1439310686639},{"word":"nyblogas ","input":"nib","matches":false,"allWord":false,"time":1439310686942},{"word":"nyblogas ","input":"nibl","matches":false,"allWord":false,"time":1439310687047},{"word":"nyblogas ","input":"niblo","matches":false,"allWord":false,"time":1439310687197},{"word":"nyblogas ","input":"nibl","matches":false,"allWord":false,"time":1439310687440},{"word":"nyblogas ","input":"nib","matches":false,"allWord":false,"time":1439310687625},{"word":"nyblogas ","input":"ni","matches":false,"allWord":false,"time":1439310687975},{"word":"nyblogas ","input":"n","matches":true,"allWord":false,"time":1439310688313},{"word":"nyblogas ","input":"ny","matches":true,"allWord":false,"time":1439310688950},{"word":"nyblogas ","input":"nyg","matches":false,"allWord":false,"time":1439310689129},{"word":"nyblogas ","input":"ny","matches":true,"allWord":false,"time":1439310689561},{"word":"nyblogas ","input":"nyb","matches":true,"allWord":false,"time":1439310689708},{"word":"nyblogas ","input":"nybl","matches":true,"allWord":false,"time":1439310689911},{"word":"nyblogas ","input":"nyblo","matches":true,"allWord":false,"time":1439310690207},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310690317},{"word":"nyblogas ","input":"nyblogS","matches":false,"allWord":false,"time":1439310690626},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310691033},{"word":"nyblogas ","input":"nyblogA","matches":false,"allWord":false,"time":1439310691644},{"word":"nyblogas ","input":"nyblogAS","matches":false,"allWord":false,"time":1439310691707},{"word":"nyblogas ","input":"nyblogAS ","matches":false,"allWord":true,"time":1439310691982},{"word":"nyblogas ","input":"nyblogAS","matches":false,"allWord":false,"time":1439310692304},{"word":"nyblogas ","input":"nyblogA","matches":false,"allWord":false,"time":1439310692423},{"word":"nyblogas ","input":"nyblog","matches":true,"allWord":false,"time":1439310693034},{"word":"nyblogas ","input":"nybloga","matches":true,"allWord":false,"time":1439310693369},{"word":"nyblogas ","input":"nyblogas","matches":true,"allWord":false,"time":1439310693545},{"word":"nyblogas ","input":"nyblogas ","matches":true,"allWord":true,"time":1439310693969}],[{"word":"tekstuks, ","input":"t","matches":true,"allWord":false,"time":1439310694461},{"word":"tekstuks, ","input":"te","matches":true,"allWord":false,"time":1439310694749},{"word":"tekstuks, ","input":"tek","matches":true,"allWord":false,"time":1439310694876},{"word":"tekstuks, ","input":"teks","matches":true,"allWord":false,"time":1439310695009},{"word":"tekstuks, ","input":"tekst","matches":true,"allWord":false,"time":1439310695286},{"word":"tekstuks, ","input":"tekstu","matches":true,"allWord":false,"time":1439310695420},{"word":"tekstuks, ","input":"tekstuk","matches":true,"allWord":false,"time":1439310696206},{"word":"tekstuks, ","input":"tekstuks","matches":true,"allWord":false,"time":1439310696301},{"word":"tekstuks, ","input":"tekstuks,","matches":true,"allWord":false,"time":1439310696590},{"word":"tekstuks, ","input":"tekstuks, ","matches":true,"allWord":true,"time":1439310696787}],[{"word":"okei?","input":"o","matches":true,"allWord":false,"time":1439310697807},{"word":"okei?","input":"ok","matches":true,"allWord":false,"time":1439310697987},{"word":"okei?","input":"oke","matches":true,"allWord":false,"time":1439310698060},{"word":"okei?","input":"okei","matches":true,"allWord":false,"time":1439310698129},{"word":"okei?","input":"okei?","matches":true,"allWord":true,"time":1439310698557}]]}');
-	var oneTextWordsData = oneTextInputData.wordStats;
-
-	var twoTextInputData = JSON.parse(localstr.textTwo);
-	var twoTextWordsData = twoTextInputData.wordStats;
-
-	var threeTextInputData = JSON.parse(localstr.textThree);
-	var threeTextWordsData = threeTextInputData.wordStats;
+	var trimAndRemoveSigns = __webpack_require__(172).trimAndRemoveSigns;
 
 	var calculateWPM = exports.calculateWPM = function (startTime, finishTime, textLengthInWords) {
 	    if (!startTime || !finishTime || !textLengthInWords) {
@@ -22087,188 +22268,7 @@
 	    }, { word: null, mistakes: 0, heatMap: [], typingTime: { tempStart: 0, tempEnd: 0 } });
 	};
 
-	var trimAndRemoveSigns = function trimAndRemoveSigns(word) {
-	    var signsToBeRemoved = [",", ".", ";", ":", "(", ")", "!"];
-	    var newWord = word.trim();
-	    return newWord.split("").map(function (letter) {
-	        if (signsToBeRemoved.indexOf(letter) !== -1) {
-	            return "";
-	        }
-	        return letter;
-	    }).join("");
-	};
-
-	//wordsStatisticsCalculator(twoTextWordsData);
-	//wordsStatisticsCalculator(threeTextWordsData);
-
 	//# sourceMappingURL=statistics_calculation_functions-compiled.js.map
-
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	var GameStatistics = module.exports = React.createClass({
-	    displayName: "exports",
-
-	    render: function render() {
-	        console.log("Game statistics: ", this.props.data);
-	        return React.createElement("div", null);
-	    }
-	});
-
-/***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	var WordsStatistics = module.exports = React.createClass({
-	    displayName: "exports",
-
-	    render: function render() {
-	        console.log("Words statistics: ", this.props.data);
-
-	        return React.createElement("div", null);
-	    }
-	});
-
-/***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	var OverallStatistics = module.exports = React.createClass({
-	    displayName: "exports",
-
-	    render: function render() {
-	        console.log("Overall statistics: ", this.props.data);
-
-	        return React.createElement("div", null);
-	    }
-	});
-
-/***/ },
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Created by vyt on 2015-09-03.
-	 */
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var statistics = __webpack_require__(178);
-	var gameSpecificsStats = statistics.gameSpecificsStats;
-	var textSpecificStats = statistics.textSpecificStats;
-	var wordsSpecificStats = statistics.wordsSpecificStats;
-	var overAllStats = statistics.overAllStats;
-
-	/*
-	 * - sends out data to subscribers when data is updated;
-	 * - sends data on request (by some query); */
-	module.exports = (function () {
-	    function DataCenter() {
-	        _classCallCheck(this, DataCenter);
-
-	        // sources
-	        this.sc = {
-	            TEXTS_SPECIFIC: 'dataTextSpecific',
-	            WORDS_SPECIFIC: 'dataWordsSpecific',
-	            OVER_ALL: 'overAll'
-	        };
-
-	        this.subscribers = [];
-	        this._data = this.getStatsFromLocalStorage(this.sc.TEXTS_SPECIFIC, this.sc.WORDS_SPECIFIC, this.sc.OVER_ALL); // paimam kol kas i localstorago ir praranimas fjas
-	    }
-
-	    _createClass(DataCenter, [{
-	        key: 'getAllState',
-	        value: function getAllState() {
-	            return Object.assign({}, this._data);
-	        }
-	    }, {
-	        key: 'getData',
-	        value: function getData() {
-	            var _this = this;
-
-	            for (var _len = arguments.length, dataSources = Array(_len), _key = 0; _key < _len; _key++) {
-	                dataSources[_key] = arguments[_key];
-	            }
-
-	            var dataToReturn = dataSources.map(function (src) {
-	                return _this._data[src];
-	            });
-	            return Object.assign.apply(Object, [{}].concat(_toConsumableArray(dataToReturn)));
-	        }
-	    }, {
-	        key: 'updateData',
-	        value: function updateData(name) {
-	            getStatsFromLocalStorage(name);
-	            updateSubscribers();
-	        }
-	    }, {
-	        key: 'updateSubscribers',
-	        value: function updateSubscribers() {
-	            var _this2 = this;
-
-	            this.subscribers.forEach(function (subObj) {
-	                var dataToReturn = subObj.dataSources.map(function (src) {
-	                    return _this2._data[src];
-	                });
-	                return subObj.callback(Object.assign.apply(Object, [{}].concat(_toConsumableArray(dataToReturn))));
-	            });
-	        }
-
-	        // {callback: fnc, dataSources: [this.dataTextSpecific, this.dataWordsSpecific, this.overAll]}
-	    }, {
-	        key: 'subscribe',
-	        value: function subscribe(subObj) {
-	            this.subscribers.push(subObj);
-	        }
-	    }, {
-	        key: 'unsubscribe',
-	        value: function unsubscribe(subObj) {
-	            var subIndex = this.subscribers.indexOf(subObj);
-	            this.subscribers.splice(subIndex, 1);
-	        }
-	    }, {
-	        key: 'getStatsFromLocalStorage',
-	        value: function getStatsFromLocalStorage() {
-	            // this is required for other stat functions to work
-	            var dataGameSpecific = gameSpecificsStats(localStorage);
-
-	            for (var _len2 = arguments.length, targets = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                targets[_key2] = arguments[_key2];
-	            }
-
-	            var dataTextSpecific = targets.indexOf("dataTextSpecific") >= 0 && textSpecificStats(dataGameSpecific) || this._data["dataTextSpecific"];
-	            var dataWordsSpecific = targets.indexOf("dataWordsSpecific") >= 0 && wordsSpecificStats(dataGameSpecific) || this._data["dataWordsSpecific"];
-	            var overAll = targets.indexOf("overAll") >= 0 && overAllStats(dataGameSpecific) || this._data["overAll"];
-	            return {
-	                dataGameSpecific: dataGameSpecific,
-	                dataTextSpecific: dataTextSpecific,
-	                dataWordsSpecific: dataWordsSpecific,
-	                overAll: overAll
-	            };
-	        }
-	    }]);
-
-	    return DataCenter;
-	})();
 
 /***/ },
 /* 184 */

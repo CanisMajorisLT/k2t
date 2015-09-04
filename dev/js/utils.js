@@ -34,3 +34,18 @@ exports.makeWordHeatmap = function makeWordHeatmap (word, heatMapArray) {
                 return <span style={letterStyle}>{letter}</span>
             })
 };
+
+
+exports.trimAndRemoveSigns = word=> {
+    let signsToBeRemoved = [",", ".", ";", ":", "(", ")", "!"];
+    let newWord = word.trim();
+    return newWord.
+        split("").
+        map((letter)=> {
+            if (signsToBeRemoved.indexOf(letter) !== -1) {
+                return ""
+            }
+            return letter
+        }).
+        join("")
+};

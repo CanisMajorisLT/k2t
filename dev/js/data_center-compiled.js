@@ -54,8 +54,8 @@ module.exports = (function () {
         }
     }, {
         key: 'updateData',
-        value: function updateData(name) {
-            getStatsFromLocalStorage(name);
+        value: function updateData() {
+            getStatsFromLocalStorage.apply(undefined, arguments);
             updateSubscribers();
         }
     }, {

@@ -39,4 +39,15 @@ exports.makeWordHeatmap = function makeWordHeatmap(word, heatMapArray) {
     });
 };
 
+exports.trimAndRemoveSigns = function (word) {
+    var signsToBeRemoved = [",", ".", ";", ":", "(", ")", "!"];
+    var newWord = word.trim();
+    return newWord.split("").map(function (letter) {
+        if (signsToBeRemoved.indexOf(letter) !== -1) {
+            return "";
+        }
+        return letter;
+    }).join("");
+};
+
 //# sourceMappingURL=utils-compiled.js.map

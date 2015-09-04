@@ -18,12 +18,23 @@ let AfterGameHeatMap = module.exports = React.createClass({
 
     render () {
         let gameId = this.props.text.gameId;
-        return (
-            <div>
-                <LeftSideWordsStatistics gameId={gameId} wordData={this.state.wordData} dataCenter={this.props.dataCenter}/>
-                <TextHeatMap gameId={gameId} updateLeftSideStatistics={this.updateLeftSideStatistics}/>
-            </div>
-        );
+        if (this.state.wordData) {
+            return (
+                <div>
+                    <LeftSideWordsStatistics gameId={gameId} wordData={this.state.wordData}
+                                             dataCenter={this.props.dataCenter}/>
+                    <TextHeatMap gameId={gameId} updateLeftSideStatistics={this.updateLeftSideStatistics}/>
+                </div>
+            );
+        }
+        else {
+            return (
+                <div>
+                    <TextHeatMap gameId={gameId} updateLeftSideStatistics={this.updateLeftSideStatistics}/>
+                </div>
+            );
+        }
+
     }
 
 });
@@ -46,7 +57,7 @@ let TextHeatMap = React.createClass({
         });
 
         return (
-            <div className="text" >{heatMap}</div>
+            <div className="text">{heatMap}</div>
         )
     }
 });
