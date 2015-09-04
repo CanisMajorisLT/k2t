@@ -28,12 +28,12 @@ module.exports = class DataCenter {
     }
 
     getData(...dataSources) {
-        let dataToReturn = dataSources.map(src=> this._data[src]);
+        let dataToReturn = dataSources.map((src)=> {return {[src]: this._data[src]}});
         return Object.assign({}, ...dataToReturn)
     }
 
     updateData(...targets) {
-        console.log("data center updatign data for", ...targets)
+        console.log("data center updating data for", ...targets)
         this._data = this.getStatsFromLocalStorage(...targets);
         this.__updateSubscribers()
         console.log("data now is", this._data)

@@ -21411,8 +21411,9 @@
 	        var trimedWord = trimAndRemoveSigns(this.state.wordData.word);
 	        var dc = this.props.dataCenter;
 	        var additionalData = dc.getData(dc.sc.WORDS_SPECIFIC, dc.sc.TEXTS_SPECIFIC);
-	        var wordsSpecific = additionalData.wordsSpecific[trimedWord];
-	        var textSpecific = additionalData.textSpecific[this.props.text.gameId];
+	        console.log(additionalData);
+	        var wordsSpecific = additionalData.dataWordsSpecific[trimedWord];
+	        var textSpecific = additionalData.dataTextSpecific[this.props.text.gameId];
 
 	        return { wordsSpecific: wordsSpecific, textSpecific: textSpecific };
 	    },
@@ -21907,6 +21908,8 @@
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	var statistics = __webpack_require__(181);
@@ -21948,7 +21951,7 @@
 	            }
 
 	            var dataToReturn = dataSources.map(function (src) {
-	                return _this._data[src];
+	                return _defineProperty({}, src, _this._data[src]);
 	            });
 	            return Object.assign.apply(Object, [{}].concat(_toConsumableArray(dataToReturn)));
 	        }
@@ -21959,7 +21962,7 @@
 	                targets[_key2] = arguments[_key2];
 	            }
 
-	            console.log.apply(console, ["data center updatign data for"].concat(targets));
+	            console.log.apply(console, ["data center updating data for"].concat(targets));
 	            this._data = this.getStatsFromLocalStorage.apply(this, targets);
 	            this.__updateSubscribers();
 	            console.log("data now is", this._data);

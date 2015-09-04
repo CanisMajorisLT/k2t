@@ -33,8 +33,9 @@ let AfterGameHeatMap = module.exports = React.createClass({
         let trimedWord = trimAndRemoveSigns(this.state.wordData.word);
         let dc = this.props.dataCenter;
         let additionalData = dc.getData(dc.sc.WORDS_SPECIFIC, dc.sc.TEXTS_SPECIFIC);
-        let wordsSpecific = additionalData.wordsSpecific[trimedWord];
-        let textSpecific = additionalData.textSpecific[this.props.text.gameId]
+        console.log(additionalData)
+        let wordsSpecific = additionalData.dataWordsSpecific[trimedWord];
+        let textSpecific = additionalData.dataTextSpecific[this.props.text.gameId]
 
         return {wordsSpecific, textSpecific}
     },
