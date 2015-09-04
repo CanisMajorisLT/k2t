@@ -16,7 +16,7 @@ module.exports = class DataCenter {
         this.sc = {
             TEXTS_SPECIFIC: 'dataTextSpecific',
             WORDS_SPECIFIC: 'dataWordsSpecific',
-            OVER_ALL: 'overAll'
+            OVER_ALL: 'overAll',
         };
 
         this.subscribers = [];
@@ -33,12 +33,14 @@ module.exports = class DataCenter {
     }
 
     updateData(...targets) {
-        getStatsFromLocalStorage(...targets);
-        updateSubscribers()
+        console.log("data center updatign data for", ...targets)
+        this._data = this.getStatsFromLocalStorage(...targets);
+        this.__updateSubscribers()
+        console.log("data now is", this._data)
 
     }
 
-    updateSubscribers() {
+    __updateSubscribers() {
         this.subscribers.forEach((subObj)=> {
             let dataToReturn = subObj.dataSources.map(src=> this._data[src]);
             return subObj.callback(Object.assign({}, ...dataToReturn))

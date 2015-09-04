@@ -1,13 +1,10 @@
-var React = require('react');
+let React = require('react');
 let trimAndRemoveSigns = require("../js/utils").trimAndRemoveSigns;
 
-var LeftSideStats = React.createClass({
-
+let LeftSideStats = React.createClass({
     render() {
         // fecth more comprehensive data about the word // reikia per propsus sita paduoti ciuju data
-        let dc = this.props.dataCenter;
-        let allWordsData = dc.getData(dc.sc.WORDS_SPECIFIC);
-        let moreData = allWordsData[trimAndRemoveSigns(this.props.wordData.word)];
+        let ad = this.props.additionalData;
         return (
             <div>
                 <div>Dem nice word stats:</div>
@@ -15,10 +12,10 @@ var LeftSideStats = React.createClass({
 
                 <div>Additional info</div>
                 <ul>
-                    <li>count: {moreData.count}</li>
-                    <li>mistakes: {moreData.mistakes}</li>
-                    <li>fastest typing time: {moreData.typingTime.fastest}</li>
-                    <li>slowest typing time: {moreData.typingTime.all.reduce((p, c)=> {return c > p ? c : p})}</li>
+                    <li>count: {ad.wordsSpecific.count}</li>
+                    <li>mistakes: {ad.wordsSpecific.mistakes}</li>
+                    <li>fastest typing time: {ad.wordsSpecific.typingTime.fastest}</li>
+                    <li>slowest typing time: {ad.wordsSpecific.typingTime.all.reduce((p, c)=> {return c > p ? c : p})}</li>
                 </ul>
             </div>
         );

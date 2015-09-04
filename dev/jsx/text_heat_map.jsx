@@ -2,6 +2,7 @@ let React = require("react");
 let singleWordStats = require("../js/statistics/statistics_calculation_functions").singleWordStats;
 let makeWordHeatmap = require("../js/utils").makeWordHeatmap;
 let LeftSideWordsStatistics = require("./leftSideStatistics.jsx");
+let trimAndRemoveSigns = require("../js/utils").trimAndRemoveSigns;
 
 
 let AfterGameHeatMap = module.exports = React.createClass({
@@ -10,10 +11,32 @@ let AfterGameHeatMap = module.exports = React.createClass({
             wordData: null
         };
     },
+
+    updateDataCenter(){
+        // update all data
+        let sc = this.props.dataCenter.sc;
+        this.props.dataCenter.updateData(sc.TEXTS_SPECIFIC, sc.WORDS_SPECIFIC, sc.OVER_ALL);
+    },
+
+    componentDidMount (){
+        console.log("AfterGameHeatMap did mount")
+        this.updateDataCenter()
+    },
+
     updateLeftSideStatistics(newWordData){
         this.setState({
             wordData: newWordData
         });
+    },
+
+    getAdditionalDataForWord(){
+        let trimedWord = trimAndRemoveSigns(this.state.wordData.word);
+        let dc = this.props.dataCenter;
+        let additionalData = dc.getData(dc.sc.WORDS_SPECIFIC, dc.sc.TEXTS_SPECIFIC);
+        let wordsSpecific = additionalData.wordsSpecific[trimedWord];
+        let textSpecific = additionalData.textSpecific[this.props.text.gameId]
+
+        return {wordsSpecific, textSpecific}
     },
 
     render () {
@@ -21,8 +44,7 @@ let AfterGameHeatMap = module.exports = React.createClass({
         if (this.state.wordData) {
             return (
                 <div>
-                    <LeftSideWordsStatistics gameId={gameId} wordData={this.state.wordData}
-                                             dataCenter={this.props.dataCenter}/>
+                    <LeftSideWordsStatistics wordData={this.state.wordData} additionalData={this.getAdditionalDataForWord()}/>
                     <TextHeatMap gameId={gameId} updateLeftSideStatistics={this.updateLeftSideStatistics}/>
                 </div>
             );
