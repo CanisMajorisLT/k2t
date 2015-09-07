@@ -7,6 +7,8 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var statistics = require("../js/statistics/comprehensive_statistics");
@@ -24,6 +26,7 @@ module.exports = (function () {
 
         // sources
         this.sc = {
+            GAME_SPECIFIC: 'dataGameSpecific',
             TEXTS_SPECIFIC: 'dataTextSpecific',
             WORDS_SPECIFIC: 'dataWordsSpecific',
             OVER_ALL: 'overAll'
@@ -48,19 +51,25 @@ module.exports = (function () {
             }
 
             var dataToReturn = dataSources.map(function (src) {
-                return _this._data[src];
+                return _defineProperty({}, src, _this._data[src]);
             });
             return Object.assign.apply(Object, [{}].concat(_toConsumableArray(dataToReturn)));
         }
     }, {
         key: 'updateData',
         value: function updateData() {
-            getStatsFromLocalStorage.apply(undefined, arguments);
-            updateSubscribers();
+            for (var _len2 = arguments.length, targets = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                targets[_key2] = arguments[_key2];
+            }
+
+            console.log.apply(console, ["data center updating data for"].concat(targets));
+            this._data = this.getStatsFromLocalStorage.apply(this, targets);
+            this.__updateSubscribers();
+            console.log("data now is", this._data);
         }
     }, {
-        key: 'updateSubscribers',
-        value: function updateSubscribers() {
+        key: '__updateSubscribers',
+        value: function __updateSubscribers() {
             var _this2 = this;
 
             this.subscribers.forEach(function (subObj) {
@@ -89,8 +98,8 @@ module.exports = (function () {
             // this is required for other stat functions to work
             var dataGameSpecific = gameSpecificsStats(localStorage);
 
-            for (var _len2 = arguments.length, targets = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-                targets[_key2] = arguments[_key2];
+            for (var _len3 = arguments.length, targets = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+                targets[_key3] = arguments[_key3];
             }
 
             var dataTextSpecific = targets.indexOf("dataTextSpecific") >= 0 && textSpecificStats(dataGameSpecific) || this._data["dataTextSpecific"];

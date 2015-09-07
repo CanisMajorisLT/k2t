@@ -12,17 +12,6 @@ let AfterGameHeatMap = module.exports = React.createClass({
         };
     },
 
-    updateDataCenter(){
-        // update all data
-        let sc = this.props.dataCenter.sc;
-        this.props.dataCenter.updateData(sc.TEXTS_SPECIFIC, sc.WORDS_SPECIFIC, sc.OVER_ALL);
-    },
-
-    componentDidMount (){
-        console.log("AfterGameHeatMap did mount")
-        this.updateDataCenter()
-    },
-
     updateLeftSideStatistics(newWordData){
         this.setState({
             wordData: newWordData
@@ -31,11 +20,8 @@ let AfterGameHeatMap = module.exports = React.createClass({
 
     getAdditionalDataForWord(){
         let trimedWord = trimAndRemoveSigns(this.state.wordData.word);
-        let dc = this.props.dataCenter;
-        let additionalData = dc.getData(dc.sc.WORDS_SPECIFIC, dc.sc.TEXTS_SPECIFIC);
-        console.log(additionalData)
-        let wordsSpecific = additionalData.dataWordsSpecific[trimedWord];
-        let textSpecific = additionalData.dataTextSpecific[this.props.text.gameId]
+        let wordsSpecific = this.props.relatedStatisticsData.wordsSpecific[trimedWord];
+        let textSpecific = this.props.relatedStatisticsData.textSpecific;
 
         return {wordsSpecific, textSpecific}
     },

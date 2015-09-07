@@ -14,28 +14,31 @@ module.exports = class DataCenter {
     constructor() {
         // sources
         this.sc = {
+            GAME_SPECIFIC: 'dataGameSpecific',
             TEXTS_SPECIFIC: 'dataTextSpecific',
             WORDS_SPECIFIC: 'dataWordsSpecific',
-            OVER_ALL: 'overAll',
+            OVER_ALL: 'overAll'
         };
 
         this.subscribers = [];
         this._data = this.getStatsFromLocalStorage(this.sc.TEXTS_SPECIFIC, this.sc.WORDS_SPECIFIC, this.sc.OVER_ALL); // paimam kol kas i localstorago ir praranimas fjas
     }
 
-    getAllState(){
+    getAllState() {
         return Object.assign({}, this._data)
     }
 
     getData(...dataSources) {
-        let dataToReturn = dataSources.map((src)=> {return {[src]: this._data[src]}});
+        let dataToReturn = dataSources.map((src)=> {
+            return {[src]: this._data[src]}
+        });
         return Object.assign({}, ...dataToReturn)
     }
 
     updateData(...targets) {
-        console.log("data center updating data for", ...targets)
+        console.log("data center updating data for", ...targets);
         this._data = this.getStatsFromLocalStorage(...targets);
-        this.__updateSubscribers()
+        this.__updateSubscribers();
         console.log("data now is", this._data)
 
     }

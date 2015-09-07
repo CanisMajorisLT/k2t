@@ -1,5 +1,6 @@
 let React = require('react');
 let trimAndRemoveSigns = require("../js/utils").trimAndRemoveSigns;
+let makeWordHeatmap = require("../js/utils").makeWordHeatmap;
 
 let LeftSideStats = React.createClass({
     render() {
@@ -8,7 +9,11 @@ let LeftSideStats = React.createClass({
         return (
             <div>
                 <div>Dem nice word stats:</div>
-                <span>{this.props.wordData}</span>
+                <ul>
+                    <li>Mistakes {this.props.wordData.mistakes}</li>
+                    <li>TypingTime: {this.props.wordData.typingTime}</li>
+                    <li>HeatMap: {makeWordHeatmap(this.props.wordData.word, this.props.wordData.heatMap)}</li>
+                </ul>
 
                 <div>Additional info</div>
                 <ul>

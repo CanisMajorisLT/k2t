@@ -12,7 +12,7 @@ let AfterGameTextStatistics = require("./after_game_text_stats.jsx");
 let ComprehensiveStatisticsPanel = require("./comprehensive_stats/main_stats_panel.jsx");
 
 let DataCenter = require("../js/data_center");
-
+let utils = require("../js/utils");
 require("../styles/main.scss");
 require("babel/polyfill");
 
@@ -58,7 +58,8 @@ let PlayArea = React.createClass({
         // StatisticsPanel iskelti is cia
         let playModePanel = this.state.textChosen ? null : <PlayModePanel initiateGame={this.initiateGame}/>;
         let gameWrap = this.state.textChosen ?
-            <GameWrap startNewGame={this.startNewGame} text={new TextObj(this.state.text)} dataCenter={this.props.dataCenter}/> : null;
+            <GameWrap startNewGame={this.startNewGame} text={new TextObj(this.state.text)}
+                      dataCenter={this.props.dataCenter}/> : null;
         return (
             <div id="play-area">
                 {playModePanel}
@@ -84,7 +85,8 @@ let GameWrap = React.createClass({
             return <Game text={this.props.text} gameFinished={this.gameFinished}/>;
         }
         else {
-            return <AfterGame startNewGame={this.props.startNewGame} text={this.props.text} dataCenter={this.props.dataCenter}/>
+            return <AfterGame startNewGame={this.props.startNewGame} text={this.props.text}
+                              dataCenter={this.props.dataCenter}/>
         }
     }
 
@@ -92,12 +94,40 @@ let GameWrap = React.createClass({
 
 
 let AfterGame = React.createClass({
+    updateDataCenter(){
+        // update all data
+        let sc = this.props.dataCenter.sc;
+        this.props.dataCenter.updateData(sc.TEXTS_SPECIFIC, sc.WORDS_SPECIFIC, sc.OVER_ALL);
+    },
+
+    componentWillMount(){
+        console.log("AfterGame will mount");
+        this.updateDataCenter()
+    },
+
+    getRelatedData(){
+        let textId = this.props.text.gameId.split("-")[0];
+        let sc = this.props.dataCenter.sc;
+        let additionalData = this.props.dataCenter.getData(sc.GAME_SPECIFIC, sc.WORDS_SPECIFIC, sc.TEXTS_SPECIFIC);
+        console.log("add data", additionalData);
+        let wordsSpecific = additionalData.dataWordsSpecific;
+        let textSpecific = additionalData.dataTextSpecific[textId];
+        let gamesOfSameText = utils.filterGamesOfSameText(textId, additionalData.dataGameSpecific);
+        return {wordsSpecific, textSpecific, gamesOfSameText}
+
+
+    },
+
     render() {
+        let relatedStatisticsData = this.getRelatedData();
         return (
             <div>
-                <AfterGameHeatMap text={this.props.text} dataCenter={this.props.dataCenter}/>
+                <AfterGameHeatMap text={this.props.text}
+                                  relatedStatisticsData={relatedStatisticsData}/>
                 <AfterGameControls startNewGame={this.props.startNewGame}/>
-                <AfterGameTextStatistics gameId={this.props.text.gameId} dataCenter={this.props.dataCenter}/>
+                <AfterGameTextStatistics gameId={this.props.text.gameId}
+                                         gamesOfSameText={relatedStatisticsData.gamesOfSameText}
+                                         dataTextSpecific={relatedStatisticsData.textSpecific}/>
             </div>
         );
     }
