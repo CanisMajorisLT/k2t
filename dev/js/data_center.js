@@ -11,7 +11,7 @@ let overAllStats = statistics.overAllStats;
  * - sends out data to subscribers when data is updated;
  * - sends data on request (by some query); */
 module.exports = class DataCenter {
-    constructor() {
+    constructor(rawData) {
         // sources
         this.sc = {
             GAME_SPECIFIC: 'dataGameSpecific',
@@ -22,6 +22,7 @@ module.exports = class DataCenter {
 
         this.subscribers = [];
         this._data = this.getStatsFromLocalStorage(this.sc.TEXTS_SPECIFIC, this.sc.WORDS_SPECIFIC, this.sc.OVER_ALL); // paimam kol kas i localstorago ir praranimas fjas
+        this.rawData = rawData;
     }
 
     getAllState() {

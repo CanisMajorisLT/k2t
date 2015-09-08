@@ -47,7 +47,7 @@ let OneGameStats = React.createClass({
     render(){
         let game = this.props.game;
         let dateInSeconds = game.gameId.split("-")[1];
-        let dateString = new Date(Number(dateInSeconds)).toString();
+        let dateString = new Date(Number(dateInSeconds)).toDateString();
         console.log(dateString);
         return (
             <tr>
