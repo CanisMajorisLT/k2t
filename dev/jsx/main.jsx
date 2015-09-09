@@ -82,7 +82,8 @@ let GameWrap = React.createClass({
 
     render(){
         if (this.state.gameInProgress) {
-            return <Game text={this.props.text} gameFinished={this.gameFinished}/>;
+            return <Game text={this.props.text} gameFinished={this.gameFinished}
+                         dataCenter={this.props.dataCenter}/>;
         }
         else {
             return <AfterGame startNewGame={this.props.startNewGame} text={this.props.text}
@@ -123,7 +124,8 @@ let AfterGame = React.createClass({
         return (
             <div>
                 <AfterGameHeatMap text={this.props.text}
-                                  relatedStatisticsData={relatedStatisticsData}/>
+                                  relatedStatisticsData={relatedStatisticsData}
+                                  dataCenter={this.props.dataCenter}/>
                 <AfterGameControls startNewGame={this.props.startNewGame}/>
                 <AfterGameTextStatistics gameId={this.props.text.gameId}
                                          gamesOfSameText={relatedStatisticsData.gamesOfSameText}
@@ -166,7 +168,8 @@ let Game = React.createClass({
                 gameId: this.props.text.gameId,
                 currentWord: this.state.currentWord
             };
-            recordStatistic(inputResult, textData);
+            this.props.dataCenter.rawData.record(inputResult, textData)
+            //recordStatistic(inputResult, textData);
 
         }
 

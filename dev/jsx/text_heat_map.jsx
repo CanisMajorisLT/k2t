@@ -32,14 +32,14 @@ let AfterGameHeatMap = module.exports = React.createClass({
             return (
                 <div>
                     <LeftSideWordsStatistics wordData={this.state.wordData} additionalData={this.getAdditionalDataForWord()}/>
-                    <TextHeatMap gameId={gameId} updateLeftSideStatistics={this.updateLeftSideStatistics}/>
+                    <TextHeatMap gameId={gameId} updateLeftSideStatistics={this.updateLeftSideStatistics} dataCenter={this.props.dataCenter}/>
                 </div>
             );
         }
         else {
             return (
                 <div>
-                    <TextHeatMap gameId={gameId} updateLeftSideStatistics={this.updateLeftSideStatistics}/>
+                    <TextHeatMap gameId={gameId} updateLeftSideStatistics={this.updateLeftSideStatistics} dataCenter={this.props.dataCenter}/>
                 </div>
             );
         }
@@ -55,7 +55,8 @@ let TextHeatMap = React.createClass({
     },
 
     render(){
-        let wordsData = JSON.parse(localStorage.getItem(this.props.gameId)).wordStats;
+        //  let wordsData = JSON.parse(localStorage.getItem(this.props.gameId)).wordStats;
+        let wordsData = this.props.dataCenter.rawData.queryData.byId(this.props.gameId).wordStats;
         // gameStatistics[gameId] ==> textWordsArray.map(w=>statistics.words[w])
         /*taip neveiks nes statistika tuos pat zodzius sumeta i bendra ir neislaiko eiliskumo,
          *TODO gal reik gamestats pakeisti kad eiliskuma islaikytu? suteikti visoms stat funckijom kaip opcija islaikyt ieliskuma ir
