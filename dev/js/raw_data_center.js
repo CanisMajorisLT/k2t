@@ -1,6 +1,3 @@
-
-
-
 module.exports = class RawDataCenter {
 	constructor(){
 
@@ -13,4 +10,4 @@ module.exports = class RawDataCenter {
 	storeData(){
 		
 	}
-}
+};
