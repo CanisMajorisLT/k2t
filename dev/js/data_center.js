@@ -1,6 +1,7 @@
 /**
  * Created by vyt on 2015-09-03.
  */
+let RawDataCenter = require("./raw_data_center")();
 let statistics = require("../js/statistics/comprehensive_statistics");
 let gameSpecificsStats = statistics.gameSpecificsStats;
 let textSpecificStats = statistics.textSpecificStats;
@@ -11,7 +12,7 @@ let overAllStats = statistics.overAllStats;
  * - sends out data to subscribers when data is updated;
  * - sends data on request (by some query); */
 module.exports = class DataCenter {
-    constructor(rawData) {
+    constructor(rawData=RawDataCenter) {
         // sources
         this.sc = {
             GAME_SPECIFIC: 'dataGameSpecific',
@@ -22,12 +23,12 @@ module.exports = class DataCenter {
 
         this.subscribers = [];
         this._data = this.getStatsFromLocalStorage(this.sc.TEXTS_SPECIFIC, this.sc.WORDS_SPECIFIC, this.sc.OVER_ALL); // paimam kol kas i localstorago ir praranimas fjas
-        this.rawData = rawData;
+        this.rawData = RawDataCenter;
     }
 
     getAllState() {
         return Object.assign({}, this._data)
-    }
+    } 
 
     getData(...dataSources) {
         let dataToReturn = dataSources.map((src)=> {

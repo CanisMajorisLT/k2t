@@ -155,7 +155,13 @@ let overAllStats = exports.overAllStats = (gameSpecificsStats) => {
 let objectToArray = (obj) => {
     var keys = Object.keys(obj);
     return keys.map((key) => {
-        return JSON.parse(obj[key])
+        if (typeof obj[key] === "string") {
+            return JSON.parse(obj[key])
+        }
+        else {
+            return obj[key]
+        }
+        
     })
 };
 
