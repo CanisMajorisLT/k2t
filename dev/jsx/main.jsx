@@ -43,10 +43,26 @@ let PlayArea = React.createClass({
 
     },
     startNewGame(){
-        this.setState({
-            text: "",
-            textChosen: false
-        });
+        // cia turetu buti, kad paziuri ar queque yra kokia nors training data ir tiesiog paduoda
+        /*
+        if (dataCenter.stuff) {
+            render that stuff
+            }
+        else
+         */
+        }
+
+        if (dataCenter.learningData.getData("immediately").length > 0) {
+            // make learnign stuff happen
+        } else {
+            // start new game selection
+            this.setState({
+                text: "",
+                textChosen: false
+            });
+        };
+
+
     },
 
 
@@ -55,18 +71,13 @@ let PlayArea = React.createClass({
         // sita sukurto statistikos objeta ir viska kazkur fiksuotu, nes siaip tiesiog zet ar tiesingai raso uztenka tos
         // vienos fjos kur palygina inputa su dabartiniu zodziu.
 
-        // StatisticsPanel iskelti is cia
-        let playModePanel = this.state.textChosen ? null : <PlayModePanel initiateGame={this.initiateGame}/>;
-        let gameWrap = this.state.textChosen ?
-            <GameWrap startNewGame={this.startNewGame} text={new TextObj(this.state.text)}
-                      dataCenter={this.props.dataCenter}/> : null;
-        return (
-            <div id="play-area">
-                {playModePanel}
-                {gameWrap}
-            </div>
+        if (this.state.textChosen) {
+            return <GameWrap startNewGame={this.startNewGame} text={new TextObj(this.state.text)}
+                      dataCenter={this.props.dataCenter}/>
+        } else {
+            return <PlayModePanel initiateGame={this.initiateGame}/>
+        };
 
-        )
     }
 });
 
@@ -74,6 +85,7 @@ let GameWrap = React.createClass({
     getInitialState(){
         return {gameInProgress: true}
     },
+    
     gameFinished(){
         // render heatmap, show more buttons for what to do
         this.setState({gameInProgress: false});

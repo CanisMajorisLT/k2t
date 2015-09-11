@@ -1,6 +1,7 @@
 /**
  * Created by vyt on 2015-09-03.
  */
+let LearningDataCenter = require("./learning_data_center");
 let RawDataCenter = require("./raw_data_center")();
 let statistics = require("../js/statistics/comprehensive_statistics");
 let gameSpecificsStats = statistics.gameSpecificsStats;
@@ -24,6 +25,7 @@ module.exports = class DataCenter {
         this.subscribers = [];
         this._data = this.getStatsFromLocalStorage(this.sc.TEXTS_SPECIFIC, this.sc.WORDS_SPECIFIC, this.sc.OVER_ALL); // paimam kol kas i localstorago ir praranimas fjas
         this.rawData = RawDataCenter;
+        this.learningData = LearningDataCenter
     }
 
     getAllState() {
@@ -65,7 +67,7 @@ module.exports = class DataCenter {
 
     getStatsFromLocalStorage(...targets) {
         // this is required for other stat functions to work
-        let dataGameSpecific = gameSpecificsStats(localStorage);
+        let dataGameSpecific = gameSpecificsStats(this.rawData.queryData.all());
 
         let dataTextSpecific = targets.indexOf("dataTextSpecific") >= 0 && textSpecificStats(dataGameSpecific) || this._data["dataTextSpecific"];
         let dataWordsSpecific = targets.indexOf("dataWordsSpecific") >= 0 && wordsSpecificStats(dataGameSpecific) || this._data["dataWordsSpecific"];
