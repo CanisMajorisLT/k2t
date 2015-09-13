@@ -4,6 +4,7 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/dev/js/input_controller-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/raw_data_center-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dev/js/learning_data_center-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/statistics/record_statistics-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/data_center-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/test-compiled.js" />
@@ -24,6 +25,7 @@
       <root url="file://$PROJECT_DIR$/dev/jsx/main-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/input_controller-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/raw_data_center-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dev/js/learning_data_center-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/statistics/record_statistics-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/data_center-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/test-compiled.js" />

@@ -150,7 +150,11 @@ var overAllStats = exports.overAllStats = function (gameSpecificsStats) {
 var objectToArray = function objectToArray(obj) {
     var keys = Object.keys(obj);
     return keys.map(function (key) {
-        return JSON.parse(obj[key]);
+        if (typeof obj[key] === "string") {
+            return JSON.parse(obj[key]);
+        } else {
+            return obj[key];
+        }
     });
 };
 

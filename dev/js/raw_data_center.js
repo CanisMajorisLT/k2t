@@ -46,7 +46,7 @@ class RawDataRecorder {
 		wordStats.push(inputResult);
 
 		if (textData.currentWord + 1 === textData.lengthInWords) {
-			statsObj.endTime = Date.now()
+			statsObj.endTime = Date.now();
 
 			if (this.backupOnLocalStorage === true) {
 				window.localStorage.setItem(textData.gameId, JSON.stringify(statsObj))
@@ -86,7 +86,7 @@ class StatsObjectsContainer {
 		this.container[itemId] = item;
 	}
 
-	/*For when you want to get raw data for other use then live recording of it */
+	/*For when you want to get raw data for other use than live recording of it */
 	query() {
 		return {
 			byId: (itemId) => {return Object.assign({}, this.container[itemId])},
@@ -98,4 +98,4 @@ class StatsObjectsContainer {
 
 module.exports = function initiateDataCenter () {
 	return new RawDataCenter(RawDataRecorder, StatsObjectsContainer)
-}
+};
