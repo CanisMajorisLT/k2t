@@ -42,15 +42,7 @@ let PlayArea = React.createClass({
         this.setState({text: text, textChosen: true})
 
     },
-    startNewGame(){
-        // cia turetu buti, kad paziuri ar queque yra kokia nors training data ir tiesiog paduoda
-        /*
-        if (dataCenter.stuff) {
-            render that stuff
-            }
-        else
-         */
-        }
+    startNewGame() {
 
         if (dataCenter.learningData.getData("immediately").length > 0) {
             // make learnign stuff happen
@@ -110,7 +102,7 @@ let AfterGame = React.createClass({
     updateDataCenter(){
         // update all data
         let sc = this.props.dataCenter.sc;
-        this.props.dataCenter.updateData(sc.TEXTS_SPECIFIC, sc.WORDS_SPECIFIC, sc.OVER_ALL);
+        this.props.dataCenter.updateData(sc.GAME_SPECIFIC, sc.TEXTS_SPECIFIC, sc.WORDS_SPECIFIC, sc.OVER_ALL);
     },
 
     componentWillMount(){
@@ -138,7 +130,8 @@ let AfterGame = React.createClass({
                 <AfterGameHeatMap text={this.props.text}
                                   relatedStatisticsData={relatedStatisticsData}
                                   dataCenter={this.props.dataCenter}/>
-                <AfterGameControls startNewGame={this.props.startNewGame}/>
+                <AfterGameControls startNewGame={this.props.startNewGame}
+                                   gameId={this.props.text.gameId}/>
                 <AfterGameTextStatistics gameId={this.props.text.gameId}
                                          gamesOfSameText={relatedStatisticsData.gamesOfSameText}
                                          dataTextSpecific={relatedStatisticsData.textSpecific}/>

@@ -35,7 +35,7 @@ class RawDataRecorder {
 
 	recordStatistic(inputResult, textData) {
 		let statsObj = this.getStatsObj(textData);
-		var oneWordStatCont = statsObj.wordStats[textData.currentWord];
+		let oneWordStatCont = statsObj.wordStats[textData.currentWord];
 		let wordStats;
 		if (oneWordStatCont !== undefined) {
 			wordStats = oneWordStatCont
@@ -72,6 +72,13 @@ class StatsObj {
 class StatsObjectsContainer {
 	constructor() {
 		this.container = {};
+		initialContainerFill()
+	}
+
+	initialContainerFill(){
+		Object.keys(localStorage).forEach((key)=>{
+			this.container[key] = JSON.parse(localStorage[key])
+		})
 	}
 
 	getItem(itemId) {
