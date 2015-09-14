@@ -57,6 +57,7 @@ var wordsStatisticsCalculator_deprected = exports.wordsStatisticsCalculator_depr
 var wordsStatisticsCalculator = exports.wordsStatisticsCalculator = function (wordsStatsArray) {
     var trimAndClean = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
 
+    //TODO: prpalesti jsona, ideti mistakes mapa, word mapa
     return wordsStatsArray.map(function (singleWordStatsArray) {
         return singleWordStats(singleWordStatsArray, trimAndClean = true);
     }).reduce(function (accumulated, eachTextWordStatsObject) {

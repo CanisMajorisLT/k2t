@@ -72,7 +72,7 @@ class StatsObj {
 class StatsObjectsContainer {
 	constructor() {
 		this.container = {};
-		initialContainerFill()
+		this.initialContainerFill()
 	}
 
 	initialContainerFill(){

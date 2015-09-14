@@ -11,6 +11,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var TextDataCenter = require("./text_data_center");
 var LearningDataCenter = require("./learning_data_center");
 var RawDataCenter = require("./raw_data_center")();
 var statistics = require("../js/statistics/comprehensive_statistics");
@@ -40,6 +41,7 @@ module.exports = (function () {
         this._data = this.getStatsFromLocalStorage(this.sc.TEXTS_SPECIFIC, this.sc.WORDS_SPECIFIC, this.sc.OVER_ALL); // paimam kol kas i localstorago ir praranimas fjas
         this.rawData = RawDataCenter;
         this.learningData = LearningDataCenter;
+        this.textDataCenter = TextDataCenter;
     }
 
     _createClass(DataCenter, [{

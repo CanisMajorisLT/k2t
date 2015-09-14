@@ -1,0 +1,1 @@
+{"version":3,"sources":["text_data_center.js"],"names":[],"mappings":";;;;IAEM,cAAc,GACL,SADT,cAAc,GACH;0BADX,cAAc;CAGf","file":"text_data_center-compiled.js","sourcesContent":["\r\n\r\nclass TextDataCenter {\r\n    constructor(){\r\n\r\n    }\r\n\r\n\r\n}"]}

@@ -3,16 +3,18 @@
     <properties>
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/dev/js/input_controller-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dev/js/word_training/traning_string_generators-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dev/js/data_center-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dev/js/text-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dev/js/statistics/statistics_calculation_functions-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dev/js/statistics/comprehensive_statistics-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/raw_data_center-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/learning_data_center-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/statistics/record_statistics-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dev/js/data_center-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/test-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/utils-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dev/js/text-compiled.js" />
         <item url="file://$PROJECT_DIR$/dev/js/input_parser-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dev/js/statistics/statistics_calculation_functions-compiled.js" />
-        <item url="file://$PROJECT_DIR$/dev/js/statistics/comprehensive_statistics-compiled.js" />
+        <item url="file://$PROJECT_DIR$/dev/js/text_data_center-compiled.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -24,16 +26,18 @@
       <root url="file://$PROJECT_DIR$/dev/jsx/text_component-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/jsx/main-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/input_controller-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dev/js/word_training/traning_string_generators-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dev/js/data_center-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dev/js/text-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dev/js/statistics/statistics_calculation_functions-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dev/js/statistics/comprehensive_statistics-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/raw_data_center-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/learning_data_center-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/statistics/record_statistics-compiled.js" />
-      <root url="file://$PROJECT_DIR$/dev/js/data_center-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/test-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/utils-compiled.js" />
-      <root url="file://$PROJECT_DIR$/dev/js/text-compiled.js" />
       <root url="file://$PROJECT_DIR$/dev/js/input_parser-compiled.js" />
-      <root url="file://$PROJECT_DIR$/dev/js/statistics/statistics_calculation_functions-compiled.js" />
-      <root url="file://$PROJECT_DIR$/dev/js/statistics/comprehensive_statistics-compiled.js" />
+      <root url="file://$PROJECT_DIR$/dev/js/text_data_center-compiled.js" />
     </CLASSES>
     <SOURCES />
   </library>

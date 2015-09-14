@@ -21,206 +21,223 @@ let text2 = "The ref attribute can be a callback function instead of a name. Thi
 
 
 let PageWrap = React.createClass({
-    render() {
-        return (
-            <div>
-                <PlayArea dataCenter={this.props.dataCenter}/>
-                <ComprehensiveStatisticsPanel dataCenter={this.props.dataCenter}/>
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div>
+				<div id="play-area">
+					<PlayArea dataCenter={this.props.dataCenter}/>
+				</div>
+				<ComprehensiveStatisticsPanel dataCenter={this.props.dataCenter}/>
+			</div>
+		);
+	}
 
 });
 
 
 let PlayArea = React.createClass({
-    getInitialState(){
-        return {text: "", textChosen: false}
-    },
+	getInitialState(){
+		return {text: "", textChosen: false}
+	},
 
-    initiateGame(text){
-        this.setState({text: text, textChosen: true})
+	initiateGame(text){
+		this.setState({text: text, textChosen: true})
 
-    },
-    startNewGame() {
+	},
+	startNewGame() {
 
-        if (dataCenter.learningData.getData("immediately").length > 0) {
-            // make learnign stuff happen
-        } else {
-            // start new game selection
-            this.setState({
-                text: "",
-                textChosen: false
-            });
-        };
+		if (this.props.dataCenter.learningData._data["immediate"].length > 0) {
+			// make learnign stuff happen
+			console.log(this.props.dataCenter.learningData._data["immediate"]);
+			let txt = this.props.dataCenter.learningData._data["immediate"].shift();
+			console.log("main train txt", txt);
+			this.initiateGame(txt)
+		}
+		else {
+			// start new game selection
+			this.setState({
+				text: "",
+				textChosen: false
+			});
+		}
 
+	},
 
-    },
+	render(){
+		// gal cia reikia tiesiog objekta/jsona siusti su zodziu arrejum, tekso kodu kokiu nors, o tada jau tas wrapas kaip nors pagal
+		// sita sukurto statistikos objeta ir viska kazkur fiksuotu, nes siaip tiesiog zet ar tiesingai raso uztenka tos
+		// vienos fjos kur palygina inputa su dabartiniu zodziu.
 
+		if (this.state.textChosen) {
+			return <GameWrap startNewGame={this.startNewGame} text={new TextObj(this.state.text)}
+			                 dataCenter={this.props.dataCenter}/>
+		} else {
+			return <PlayModePanel initiateGame={this.initiateGame}/>
+		}
 
-    render(){
-        // gal cia reikia tiesiog objekta/jsona siusti su zodziu arrejum, tekso kodu kokiu nors, o tada jau tas wrapas kaip nors pagal
-        // sita sukurto statistikos objeta ir viska kazkur fiksuotu, nes siaip tiesiog zet ar tiesingai raso uztenka tos
-        // vienos fjos kur palygina inputa su dabartiniu zodziu.
-
-        if (this.state.textChosen) {
-            return <GameWrap startNewGame={this.startNewGame} text={new TextObj(this.state.text)}
-                      dataCenter={this.props.dataCenter}/>
-        } else {
-            return <PlayModePanel initiateGame={this.initiateGame}/>
-        };
-
-    }
+	}
 });
 
 let GameWrap = React.createClass({
-    getInitialState(){
-        return {gameInProgress: true}
-    },
-    
-    gameFinished(){
-        // render heatmap, show more buttons for what to do
-        this.setState({gameInProgress: false});
-        // update statistics
-    },
+	getInitialState(){
+		return {gameInProgress: true}
+	},
 
-    render(){
-        if (this.state.gameInProgress) {
-            return <Game text={this.props.text} gameFinished={this.gameFinished}
-                         dataCenter={this.props.dataCenter}/>;
-        }
-        else {
-            return <AfterGame startNewGame={this.props.startNewGame} text={this.props.text}
-                              dataCenter={this.props.dataCenter}/>
-        }
-    }
+	componentWillReceiveProps(nextProps) {
+	// cia temporary solutionas tam kad paduodant trainingo texta PlayArea, jis neuunmountina sito gamwrapo - bet cia reik pergalvot struktura
+		if (nextProps.text.gameId !== this.props.text.gameId) {
+			this.setState({
+			  gameInProgress: true
+			});
+		}
+
+	},
+
+	gameFinished(){
+		// render heatmap, show more buttons for what to do
+		this.setState({gameInProgress: false});
+		// update statistics
+	},
+
+	render(){
+		if (this.state.gameInProgress) {
+			return <Game text={this.props.text} gameFinished={this.gameFinished}
+			             dataCenter={this.props.dataCenter}/>;
+		}
+		else {
+			return <AfterGame startNewGame={this.props.startNewGame} text={this.props.text}
+			                  dataCenter={this.props.dataCenter}/>
+		}
+	}
 
 });
 
 
 let AfterGame = React.createClass({
-    updateDataCenter(){
-        // update all data
-        let sc = this.props.dataCenter.sc;
-        this.props.dataCenter.updateData(sc.GAME_SPECIFIC, sc.TEXTS_SPECIFIC, sc.WORDS_SPECIFIC, sc.OVER_ALL);
-    },
+	updateDataCenter(){
+		// update all data
+		let sc = this.props.dataCenter.sc;
+		this.props.dataCenter.updateData(sc.GAME_SPECIFIC, sc.TEXTS_SPECIFIC, sc.WORDS_SPECIFIC, sc.OVER_ALL);
+	},
 
-    componentWillMount(){
-        console.log("AfterGame will mount");
-        this.updateDataCenter()
-    },
+	componentWillMount(){
+		console.log("AfterGame will mount");
+		this.updateDataCenter()
+	},
 
-    getRelatedData(){
-        let textId = this.props.text.gameId.split("-")[0];
-        let sc = this.props.dataCenter.sc;
-        let additionalData = this.props.dataCenter.getData(sc.GAME_SPECIFIC, sc.WORDS_SPECIFIC, sc.TEXTS_SPECIFIC);
-        console.log("add data", additionalData);
-        let wordsSpecific = additionalData.dataWordsSpecific;
-        let textSpecific = additionalData.dataTextSpecific[textId];
-        let gamesOfSameText = utils.filterGamesOfSameText(textId, additionalData.dataGameSpecific);
-        return {wordsSpecific, textSpecific, gamesOfSameText}
+	getRelatedData(){
+		let textId = this.props.text.gameId.split("-")[0];
+		let sc = this.props.dataCenter.sc;
+		let additionalData = this.props.dataCenter.getData(sc.GAME_SPECIFIC, sc.WORDS_SPECIFIC, sc.TEXTS_SPECIFIC);
+		console.log("add data", additionalData);
+		let wordsSpecific = additionalData.dataWordsSpecific;
+		let textSpecific = additionalData.dataTextSpecific[textId];
+		let gamesOfSameText = utils.filterGamesOfSameText(textId, additionalData.dataGameSpecific);
+		return {wordsSpecific, textSpecific, gamesOfSameText}
 
 
-    },
+	},
 
-    render() {
-        let relatedStatisticsData = this.getRelatedData();
-        return (
-            <div>
-                <AfterGameHeatMap text={this.props.text}
-                                  relatedStatisticsData={relatedStatisticsData}
-                                  dataCenter={this.props.dataCenter}/>
-                <AfterGameControls startNewGame={this.props.startNewGame}
-                                   gameId={this.props.text.gameId}/>
-                <AfterGameTextStatistics gameId={this.props.text.gameId}
-                                         gamesOfSameText={relatedStatisticsData.gamesOfSameText}
-                                         dataTextSpecific={relatedStatisticsData.textSpecific}/>
-            </div>
-        );
-    }
+	render() {
+		let relatedStatisticsData = this.getRelatedData();
+		return (
+			<div>
+				<AfterGameHeatMap text={this.props.text}
+				                  relatedStatisticsData={relatedStatisticsData}
+				                  dataCenter={this.props.dataCenter}/>
+				<AfterGameControls startNewGame={this.props.startNewGame}
+				                   text={this.props.text}
+				                   gamesOfSameText={relatedStatisticsData.gamesOfSameText}
+				                   dataCenter={this.props.dataCenter}/>
+				<AfterGameTextStatistics gameId={this.props.text.gameId}
+				                         gamesOfSameText={relatedStatisticsData.gamesOfSameText}
+				                         dataTextSpecific={relatedStatisticsData.textSpecific}/>
+			</div>
+		);
+	}
 
 });
 
 
 let Game = React.createClass({
-    // kad sitas veiktu tereikia array so zodziais a.k.a teksto.
-    getInitialState(){
-        return {currentWord: 0, currentInputLength: 0, currentInputCorrect: true, timerDone: false}
-    },
+	// kad sitas veiktu tereikia array so zodziais a.k.a teksto.
+	getInitialState(){
+		return {currentWord: 0, currentInputLength: 0, currentInputCorrect: true, timerDone: false}
+	},
 
-    componentWillReceiveProps(nextProps){
-        //console.log(nextProps.text.textId);
-        this.setState({currentWord: 0})
-    },
+	componentWillReceiveProps(nextProps){
+		//console.log(nextProps.text.textId);
+		this.setState({currentWord: 0})
+	},
 
-    updateText(){
-        if (this.props.text.textLengthInWords === (this.state.currentWord + 1)) {
-            // save game to db
-            // display statistic
-            // offer to play again / train mistaken words
-            console.log("You finished the text!");
-            this.props.gameFinished()
-        }
-        this.setState({currentWord: this.state.currentWord + 1, currentInputLength: 0, currentInputCorrect: true})
-    },
+	updateText(){
+		if (this.props.text.textLengthInWords === (this.state.currentWord + 1)) {
+			// save game to db
+			// display statistic
+			// offer to play again / train mistaken words
+			console.log("You finished the text!");
+			this.props.gameFinished()
+		}
+		this.setState({currentWord: this.state.currentWord + 1, currentInputLength: 0, currentInputCorrect: true})
+	},
 
-    handleInput(inputResult){
+	handleInput(inputResult){
 
-        if (inputResult.input.length > this.state.currentInputLength) {
-            // when user deletes letters/words don't record it
-            let textData = {
-                lengthInWords: this.props.text.textLengthInWords,
-                gameId: this.props.text.gameId,
-                currentWord: this.state.currentWord
-            };
-            this.props.dataCenter.rawData.record(inputResult, textData)
-            //recordStatistic(inputResult, textData);
+		if (inputResult.input.length > this.state.currentInputLength) {
+			// when user deletes letters/words don't record it
+			let textData = {
+				lengthInWords: this.props.text.textLengthInWords,
+				gameId: this.props.text.gameId,
+				currentWord: this.state.currentWord
+			};
+			this.props.dataCenter.rawData.record(inputResult, textData)
+			//recordStatistic(inputResult, textData);
 
-        }
+		}
 
-        if (inputResult.allWord === true && inputResult.matches === true) {
-            this.updateText()
+		if (inputResult.allWord === true && inputResult.matches === true) {
+			this.updateText()
 
-        }
-        else {
-            this.setState({currentInputLength: inputResult.input.length, currentInputCorrect: inputResult.matches})
-        }
-    },
-    timerDone(){
-        console.log("main.jsx tiemr done, updatign state");
-        this.setState({timerDone: true})
-    },
+		}
+		else {
+			this.setState({currentInputLength: inputResult.input.length, currentInputCorrect: inputResult.matches})
+		}
+	},
+	timerDone(){
+		console.log("main.jsx tiemr done, updatign state");
+		this.setState({timerDone: true})
+	},
 
-    render: function () {
-        let timer = this.state.timerDone ? null : <Timer countDownTime={3} timerDone={this.timerDone}/>;
-        return (
-            <div className="wrap">
-                <Text text={this.props.text}
-                      currentWord={this.state.currentWord}
-                      currentInputCorrect={this.state.currentInputCorrect}
-                      currentLeterIndex={this.state.currentInputLength}/>
+	render: function () {
+		let timer = this.state.timerDone ? null : <Timer countDownTime={3} timerDone={this.timerDone}/>;
+		return (
+			<div className="wrap">
+				<Text text={this.props.text}
+				      currentWord={this.state.currentWord}
+				      currentInputCorrect={this.state.currentInputCorrect}
+				      currentLeterIndex={this.state.currentInputLength}/>
 
-                <Input currentInputCorrect={this.state.currentInputCorrect}
-                       currentWord={this.props.text.textWords[this.state.currentWord]}
-                       handleInput={this.handleInput}
-                       timerDone={this.state.timerDone}/>
+				<Input currentInputCorrect={this.state.currentInputCorrect}
+				       currentWord={this.props.text.textWords[this.state.currentWord]}
+				       handleInput={this.handleInput}
+				       timerDone={this.state.timerDone}/>
 
-                <LiveStatsWrap currentWordIndex={this.state.currentWord}
-                               gameId={this.props.text.gameId}/>
-                {timer}
-            </div>
-        )
-    }
+				<LiveStatsWrap currentWordIndex={this.state.currentWord}
+				               gameId={this.props.text.gameId}/>
+				{timer}
+			</div>
+		)
+	}
 });
 
 // temporary solution
 let cleanLSofUnfinishedGames = () => {
-    Object.keys(localStorage).forEach((key)=> {
-        var item = JSON.parse(localStorage[key]);
-        if (!item.endTime) {
-            delete localStorage[key]
-        }
-    })
+	Object.keys(localStorage).forEach((key)=> {
+		var item = JSON.parse(localStorage[key]);
+		if (!item.endTime) {
+			delete localStorage[key]
+		}
+	})
 };
 cleanLSofUnfinishedGames();
 

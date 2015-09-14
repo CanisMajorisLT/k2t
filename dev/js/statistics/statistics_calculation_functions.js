@@ -60,6 +60,7 @@ let wordsStatisticsCalculator_deprected = exports.wordsStatisticsCalculator_depr
 /**@param {object) wordsStatsArray from StatsObj.wordStats
  * @return {object} {totalMistakesInText: 0, words: [singleWordStats, singleWordStats, {object} {word: str, mistakes: number, heatMap: [], typingTime: number}]}*/
 let wordsStatisticsCalculator = exports.wordsStatisticsCalculator = (wordsStatsArray, trimAndClean=true) => {
+//TODO: prpalesti jsona, ideti mistakes mapa, word mapa
     return wordsStatsArray
         .map((singleWordStatsArray) => {
             return singleWordStats(singleWordStatsArray, trimAndClean=true)
