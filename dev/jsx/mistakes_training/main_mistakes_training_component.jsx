@@ -1,14 +1,23 @@
 let React = require("react");
 import * as trainingStringsGen from "../../js/word_training/traning_string_generators.js"
+
 module.exports = React.createClass({
 	handleClickJustWords(){
-		let trainingString = trainingStringsGen.wordsWithoutContext({gameStats: this.props.gameStats});
-		console.log("Traingin component makeWordsStringForTRaining ==>", trainingString);
+		let trainingString = trainingStringsGen.wordsWithoutContext({
+			gameStats: this.props.gameStats
+		});
 		this.props.dataCenter.learningData.addData.toImmediate(trainingString);
 		this.props.startNewGame()
 	},
 
 	handleClickWordsWithContext(){
+		let trainingString = trainingStringsGen.wordsWithContext({
+			text: this.props.text,
+			gameStats: this.props.gameStats
+		})
+		this.props.dataCenter.learningData.addData.toImmediate(trainingString);
+		console.log("trainingString", trainingString)
+		this.props.startNewGame()
 
 	},
 	render(){

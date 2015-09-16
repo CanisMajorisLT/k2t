@@ -16,7 +16,7 @@ export function wordsWithoutContext({repeatEachWord = 10, gameStats = gameStats}
 			}
 
 			return accumulated
-		}, []).join(" ")
+		}, []).join(" ").trim() +"."
 }
 
 export function wordsWithContext({repeatEachWord = 1, text = text, gameStats = gameStats}) {
@@ -36,8 +36,8 @@ export function wordsWithContext({repeatEachWord = 1, text = text, gameStats = g
 		}, [])
 		.reduce((accumulated, current, index)=> {
 			// need to change " " with new line
-			return accumulated + (index ? " \n" : "") + current.join("")
-		}, "")
+			return accumulated + (index ? " " : "") + current.join("").trim()
+		}, "") +"."
 }
 
 
