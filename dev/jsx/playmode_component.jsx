@@ -43,7 +43,6 @@ let PlayModePanel = module.exports = React.createClass({
 let CustomTextInputArea = React.createClass({
     handleClick(e){
         let text = React.findDOMNode(this.refs.customText).value.trim();
-
         text !== "" && this.props.setCustomText(text)
     },
 

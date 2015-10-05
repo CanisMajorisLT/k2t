@@ -2,40 +2,52 @@
 
 require("babel/polyfill");
 var Text = require("./text-compiled");
-var async = require("async");
 /**
  * Created by vyt on 2015-07-27.
  */
 
 var txt = new Text("labas rytas lietuva snd mes laimesim!");
 var gS = {
-	words: [{ mistakes: 0 }, { mistakes: 0 }, { mistakes: 3 }, { mistakes: 0 }, { mistakes: 5 }, { mistakes: 0 }]
+	words: [{ mistakes: 0 }, { mistakes: 0 }, { mistakes: 3 }, { mistakes: 0 }, { mistakes: 5 }, { mistakes: 0 }],
+	lol: 5,
+	nope: ':)'
 };
 
-function wordsWithContext(_ref) {
-	var _ref$repeatEachWord = _ref.repeatEachWord;
-	var repeatEachWord = _ref$repeatEachWord === undefined ? 1 : _ref$repeatEachWord;
-	var _ref$text = _ref.text;
-	var text = _ref$text === undefined ? text : _ref$text;
-	var _ref$gameStats = _ref.gameStats;
-	var gameStats = _ref$gameStats === undefined ? gameStats : _ref$gameStats;
+var gen = regeneratorRuntime.mark(function gen() {
+	return regeneratorRuntime.wrap(function gen$(context$1$0) {
+		while (1) switch (context$1$0.prev = context$1$0.next) {
+			case 0:
+				context$1$0.prev = 0;
+				context$1$0.next = 3;
+				return 1;
 
-	return gameStats.words.reduce(function (accumulated, current, index) {
-		if (current.mistakes > 0) {
-			var textWord = text.textWords[index];
-			var contextBefore = text.textWords.slice(index - 3 >= 0 ? index - 3 : 0, index);
-			var contextAfter = text.textWords.slice(index + 1, index + 4);
-			var stringToMake = contextBefore.concat(textWord, contextAfter);
+			case 3:
+				context$1$0.next = 5;
+				return 2;
 
-			accumulated.push(stringToMake);
+			case 5:
+				return context$1$0.abrupt("return", 3);
+
+			case 8:
+				context$1$0.prev = 8;
+				context$1$0.t0 = context$1$0["catch"](0);
+				context$1$0.next = 12;
+				return 4;
+
+			case 12:
+			case "end":
+				return context$1$0.stop();
 		}
-		return accumulated;
-	}, []).reduce(function (accumulated, current, index) {
-		// need to change " " with new line
-		return accumulated + (index ? " \n" : "") + current.join("");
-	}, "");
-}
+	}, gen, this, [[0, 8]]);
+});
 
-console.log(wordsWithContext({ text: txt, gameStats: gS }));
+var x = gen();
+console.log(x.next());
+console.log(x["throw"](new Error('ji')));
+console.log(x.next());
+
+var s = Symbol();
+
+console.log(s);
 
 //# sourceMappingURL=test-compiled.js.map

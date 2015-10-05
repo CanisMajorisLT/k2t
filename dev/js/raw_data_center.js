@@ -89,15 +89,22 @@ class StatsObjectsContainer {
 			return null
 		}
 	}
+
 	setItem(itemId, item){
+	console.log("StatsObjectsContainer.setItem", item);
 		this.container[itemId] = item;
 	}
 
 	/*For when you want to get raw data for other use than live recording of it */
 	query() {
 		return {
-			byId: (itemId) => {return Object.assign({}, this.container[itemId])},
-			all: () => {return Object.assign({}, this.container)}
+			byId: (itemId) => {
+				if (this.container.hasOwnProperty(itemId)) return Object.assign({}, this.container[itemId]);
+				else return null;
+			},
+			all: () => {
+				return Object.assign({}, this.container)
+			}
 
 		}
 	}

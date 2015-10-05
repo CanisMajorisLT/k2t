@@ -16,9 +16,6 @@ let utils = require("../js/utils");
 require("../styles/main.scss");
 require("babel/polyfill");
 
-let text1 = "The world of typing has changed. In the 1970s, every business had rooms full of secretaries whose job it was to type letters that had been hand-written. They were copying the writing into a more readable format. In the early 1980s, the personal computer became a common office machine.";
-let text2 = "The ref attribute can be a callback function instead of a name. This callback will be executed immediately after the component is mounted. The referenced component will be passed in as a parameter, and the callback function may use the component immediately, or save the reference for future use (or both).";
-
 
 let PageWrap = React.createClass({
 	render() {
@@ -44,13 +41,14 @@ let PlayArea = React.createClass({
 		this.setState({text: text, textChosen: true})
 
 	},
-	startNewGame() {
 
+	startNewGame(){
+		console.log("PlayArea startNewGame");
 		if (this.props.dataCenter.learningData._data["immediate"].length > 0) {
-			// make learnign stuff happen
+			// make learning stuff happen
 			console.log(this.props.dataCenter.learningData._data["immediate"]);
 			let txt = this.props.dataCenter.learningData._data["immediate"].shift();
-			console.log("main train txt", txt);
+			console.log("PlayArea train txt", txt);
 			this.initiateGame(txt)
 		}
 		else {
@@ -190,7 +188,7 @@ let Game = React.createClass({
 				gameId: this.props.text.gameId,
 				currentWord: this.state.currentWord
 			};
-			this.props.dataCenter.rawData.record(inputResult, textData)
+			this.props.dataCenter.rawData.record(inputResult, textData);
 			//recordStatistic(inputResult, textData);
 
 		}
@@ -223,7 +221,8 @@ let Game = React.createClass({
 				       timerDone={this.state.timerDone}/>
 
 				<LiveStatsWrap currentWordIndex={this.state.currentWord}
-				               gameId={this.props.text.gameId}/>
+				               gameId={this.props.text.gameId}
+				               dataCenter={this.props.dataCenter}/>
 				{timer}
 			</div>
 		)

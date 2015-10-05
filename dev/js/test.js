@@ -1,6 +1,5 @@
 require("babel/polyfill");
 let Text = require("./text-compiled");
-let async = require("async");
 /**
  * Created by vyt on 2015-07-27.
  */
@@ -14,30 +13,29 @@ let gS = {
 		{mistakes: 0},
 		{mistakes: 5},
 		{mistakes: 0}
-	]
-}
+	],
+	lol: 5,
+	nope: ':)'
+};
+
+let gen = function* () {
+	try {
+	yield 1;
+	yield 2;
+	return 3
+	}
+	catch(e){
+		yield 4
+	}
+
+};
+
+let x = gen();
+console.log(x.next());
+console.log(x.throw(new Error('ji')));
+console.log(x.next());
 
 
-function wordsWithContext({repeatEachWord = 1, text = text, gameStats = gameStats}) {
-	return gameStats.words.
-		reduce((accumulated, current, index)=> {
-			if (current.mistakes > 0) {
-				let textWord = text.textWords[index];
-				let contextBefore = text.textWords.slice((index - 3) >= 0 ? (index - 3) : 0, index);
-				let contextAfter = text.textWords.slice(index + 1, index + 4);
-				let stringToMake = contextBefore.concat(textWord, contextAfter);
+var s = Symbol();
 
-				accumulated.push(stringToMake);
-
-
-			}
-			return accumulated
-		}, [])
-		.reduce((accumulated, current, index)=> {
-			// need to change " " with new line
-			return accumulated + (index ? " \n" : "") + current.join("")
-		}, "")
-}
-
-
-console.log(wordsWithContext({text: txt, gameStats: gS}));
+console.log(s);

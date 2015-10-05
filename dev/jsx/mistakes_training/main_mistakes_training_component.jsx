@@ -14,9 +14,9 @@ module.exports = React.createClass({
 		let trainingString = trainingStringsGen.wordsWithContext({
 			text: this.props.text,
 			gameStats: this.props.gameStats
-		})
+		});
 		this.props.dataCenter.learningData.addData.toImmediate(trainingString);
-		console.log("trainingString", trainingString)
+		console.log("trainingString", trainingString);
 		this.props.startNewGame()
 
 	},

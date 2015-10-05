@@ -25,7 +25,7 @@ function wordsWithoutContext(_ref) {
 		}
 
 		return accumulated;
-	}, []).join(" ");
+	}, []).join(" ").trim() + ".";
 }
 
 function wordsWithContext(_ref2) {
@@ -48,8 +48,8 @@ function wordsWithContext(_ref2) {
 		return accumulated;
 	}, []).reduce(function (accumulated, current, index) {
 		// need to change " " with new line
-		return accumulated + (index ? " \n" : "") + current.join("");
-	}, "");
+		return accumulated + (index ? " " : "") + current.join("").trim();
+	}, "") + ".";
 }
 
 //# sourceMappingURL=traning_string_generators-compiled.js.map

@@ -95,7 +95,7 @@ var StatsObjectsContainer = (function () {
 		_classCallCheck(this, StatsObjectsContainer);
 
 		this.container = {};
-		initialContainerFill();
+		this.initialContainerFill();
 	}
 
 	_createClass(StatsObjectsContainer, [{
@@ -119,6 +119,7 @@ var StatsObjectsContainer = (function () {
 	}, {
 		key: "setItem",
 		value: function setItem(itemId, item) {
+			console.log("setItem");
 			this.container[itemId] = item;
 		}
 
