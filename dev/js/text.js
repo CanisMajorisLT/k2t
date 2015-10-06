@@ -1,15 +1,20 @@
 /**
  * Created by vyt on 2015-07-28.
  */
-let md5 = require("md5");
+import md5 from 'md5';
 
-module.exports = class TextObj {
-    constructor(textString) {
-        this.textString = textString;
-        this.textLength = textString.length;
-        this.textLengthInWords = textString.split(" ").length;
-        this.textWords = textString.split(" ").map((word, index, ar) => {return index !== (ar.length - 1) ? word + " " : word});
-        this.currentWord = 0;
-        this.gameId = md5(textString) + "-" + new Date().getTime()
-    }
-};
+/**
+ * Returns object with adata about text
+ * @param textString
+ * @param hashId
+ * @return {{textString: *, textLength: *, textLengthInWords: Number, textWords: Array, currentWord: number, gameId: string}}
+ */
+export default function makeTextObject ({text: textString, hashId: hashId}) {
+  return {
+        textString: textString,
+        textLength: textString.length,
+        textLengthInWords: textString.split(" ").length,
+        textWords: textString.split(" ").map((word, index, ar) => {return index !== (ar.length - 1) ? word + " " : word})
+
+  }
+}

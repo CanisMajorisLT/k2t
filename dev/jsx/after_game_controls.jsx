@@ -18,7 +18,7 @@ let AfterGameControls = React.createClass({
 	},
 
 	render() {
-		let gameStats = this.props.gamesOfSameText.filter(game=> game.gameId === this.props.text.gameId)[0];
+		let gameStats = this.props.gamesOfSameText.filter(game=> game.gameId === this.props.gameId)[0];
 		let mistakesComponent = this.state.showTrainingWordChoice && gameStats.totalMistakesInText > 0 ?
 			<MistakesTrainingComponent dataCenter={this.props.dataCenter}
 			                           gameStats={gameStats}

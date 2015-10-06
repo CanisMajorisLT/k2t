@@ -34,7 +34,7 @@ let PageWrap = React.createClass({
 
 let PlayArea = React.createClass({
 	getInitialState(){
-		return {text: "", textChosen: false}
+		return {text: {}, textChosen: false}
 	},
 
 	initiateGame(text){
@@ -61,16 +61,22 @@ let PlayArea = React.createClass({
 
 	},
 
+	getGameId(){
+		return this.state.text.hashId + "-" + new Date().getTime()
+	},
+
 	render(){
 		// gal cia reikia tiesiog objekta/jsona siusti su zodziu arrejum, tekso kodu kokiu nors, o tada jau tas wrapas kaip nors pagal
 		// sita sukurto statistikos objeta ir viska kazkur fiksuotu, nes siaip tiesiog zet ar tiesingai raso uztenka tos
 		// vienos fjos kur palygina inputa su dabartiniu zodziu.
 
 		if (this.state.textChosen) {
-			return <GameWrap startNewGame={this.startNewGame} text={new TextObj(this.state.text)}
-			                 dataCenter={this.props.dataCenter}/>
+			return <GameWrap startNewGame={this.startNewGame}
+			                 text={this.state.text}
+			                 dataCenter={this.props.dataCenter}
+			                 gameId={this.getGameId()}/>
 		} else {
-			return <PlayModePanel initiateGame={this.initiateGame}/>
+			return <PlayModePanel initiateGame={this.initiateGame} dataCenter={this.props.dataCenter}/>
 		}
 
 	}
@@ -82,10 +88,10 @@ let GameWrap = React.createClass({
 	},
 
 	componentWillReceiveProps(nextProps) {
-	// cia temporary solutionas tam kad paduodant trainingo texta PlayArea, jis neuunmountina sito gamwrapo - bet cia reik pergalvot struktura
-		if (nextProps.text.gameId !== this.props.text.gameId) {
+		// cia temporary solutionas tam kad paduodant trainingo texta PlayArea, jis neuunmountina sito gamwrapo - bet cia reik pergalvot struktura
+		if (nextProps.gameId !== this.props.gameId) {
 			this.setState({
-			  gameInProgress: true
+				gameInProgress: true
 			});
 		}
 
@@ -99,12 +105,16 @@ let GameWrap = React.createClass({
 
 	render(){
 		if (this.state.gameInProgress) {
-			return <Game text={this.props.text} gameFinished={this.gameFinished}
-			             dataCenter={this.props.dataCenter}/>;
+			return <Game text={this.props.text}
+			             gameFinished={this.gameFinished}
+			             dataCenter={this.props.dataCenter}
+			             gameId={this.props.gameId}/>;
 		}
 		else {
-			return <AfterGame startNewGame={this.props.startNewGame} text={this.props.text}
-			                  dataCenter={this.props.dataCenter}/>
+			return <AfterGame startNewGame={this.props.startNewGame}
+			                  text={this.props.text}
+			                  dataCenter={this.props.dataCenter}
+			                  gameId={this.props.gameId}/>
 		}
 	}
 
@@ -124,7 +134,7 @@ let AfterGame = React.createClass({
 	},
 
 	getRelatedData(){
-		let textId = this.props.text.gameId.split("-")[0];
+		let textId = this.props.text.hashId;
 		let sc = this.props.dataCenter.sc;
 		let additionalData = this.props.dataCenter.getData(sc.GAME_SPECIFIC, sc.WORDS_SPECIFIC, sc.TEXTS_SPECIFIC);
 		console.log("add data", additionalData);
@@ -141,13 +151,15 @@ let AfterGame = React.createClass({
 		return (
 			<div>
 				<AfterGameHeatMap text={this.props.text}
+				                  gameId={this.props.gameId}
 				                  relatedStatisticsData={relatedStatisticsData}
 				                  dataCenter={this.props.dataCenter}/>
 				<AfterGameControls startNewGame={this.props.startNewGame}
 				                   text={this.props.text}
+				                   gameId={this.props.gameId}
 				                   gamesOfSameText={relatedStatisticsData.gamesOfSameText}
 				                   dataCenter={this.props.dataCenter}/>
-				<AfterGameTextStatistics gameId={this.props.text.gameId}
+				<AfterGameTextStatistics gameId={this.props.gameId}
 				                         gamesOfSameText={relatedStatisticsData.gamesOfSameText}
 				                         dataTextSpecific={relatedStatisticsData.textSpecific}/>
 			</div>
@@ -185,7 +197,7 @@ let Game = React.createClass({
 			// when user deletes letters/words don't record it
 			let textData = {
 				lengthInWords: this.props.text.textLengthInWords,
-				gameId: this.props.text.gameId,
+				gameId: this.props.gameId,
 				currentWord: this.state.currentWord
 			};
 			this.props.dataCenter.rawData.record(inputResult, textData);
@@ -221,7 +233,7 @@ let Game = React.createClass({
 				       timerDone={this.state.timerDone}/>
 
 				<LiveStatsWrap currentWordIndex={this.state.currentWord}
-				               gameId={this.props.text.gameId}
+				               gameId={this.props.gameId}
 				               dataCenter={this.props.dataCenter}/>
 				{timer}
 			</div>

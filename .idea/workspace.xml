@@ -5,23 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6998db6b-1a1f-4d72-b21e-b1b3cd892297" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/input_parser-compiled.js.map" afterPath="$PROJECT_DIR$/dev/js/input_parser-compiled.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/input_parser-compiled.js" afterPath="$PROJECT_DIR$/dev/js/input_parser-compiled.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/jsx/livestats_component.jsx" afterPath="$PROJECT_DIR$/dev/jsx/livestats_component.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/jsx/after_game_controls.jsx" afterPath="$PROJECT_DIR$/dev/jsx/after_game_controls.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/data_center.js" afterPath="$PROJECT_DIR$/dev/js/data_center.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/jsx/main.jsx" afterPath="$PROJECT_DIR$/dev/jsx/main.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/jsx/mistakes_training/main_mistakes_training_component.jsx" afterPath="$PROJECT_DIR$/dev/jsx/mistakes_training/main_mistakes_training_component.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/mainbundle.js" afterPath="$PROJECT_DIR$/public/javascripts/mainbundle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/jsx/playmode_component.jsx" afterPath="$PROJECT_DIR$/dev/jsx/playmode_component.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/raw_data_center-compiled.js.map" afterPath="$PROJECT_DIR$/dev/js/raw_data_center-compiled.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/raw_data_center-compiled.js" afterPath="$PROJECT_DIR$/dev/js/raw_data_center-compiled.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/raw_data_center.js" afterPath="$PROJECT_DIR$/dev/js/raw_data_center.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/test-compiled.js.map" afterPath="$PROJECT_DIR$/dev/js/test-compiled.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/test-compiled.js" afterPath="$PROJECT_DIR$/dev/js/test-compiled.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/test.js" afterPath="$PROJECT_DIR$/dev/js/test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/text.js" afterPath="$PROJECT_DIR$/dev/js/text.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/text_data_center.js" afterPath="$PROJECT_DIR$/dev/js/text_data_center.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/word_training/traning_string_generators-compiled.js.map" afterPath="$PROJECT_DIR$/dev/js/word_training/traning_string_generators-compiled.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/js/word_training/traning_string_generators-compiled.js" afterPath="$PROJECT_DIR$/dev/js/word_training/traning_string_generators-compiled.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/jsx/text_heat_map.jsx" afterPath="$PROJECT_DIR$/dev/jsx/text_heat_map.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="k2t.iws" />
@@ -47,7 +38,17 @@
         <entry file="file://$PROJECT_DIR$/dev/jsx/main.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="188" column="51" selection-start-line="188" selection-start-column="51" selection-end-line="188" selection-end-column="51" />
+              <caret line="175" column="6" selection-start-line="175" selection-start-column="6" selection-end-line="175" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="text_heat_map.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/jsx/text_heat_map.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="38" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -57,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/dev/jsx/playmode_component.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+              <caret line="13" column="73" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -67,8 +68,10 @@
         <entry file="file://$PROJECT_DIR$/dev/js/text_data_center.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-              <folding />
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/dev/js/data_center.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="89" selection-start-line="59" selection-start-column="89" selection-end-line="59" selection-end-column="89" />
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="e#0#40#0" expanded="false" />
               </folding>
@@ -111,18 +114,10 @@
         <entry file="file://$PROJECT_DIR$/dev/js/text.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main_mistakes_training_component.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/jsx/mistakes_training/main_mistakes_training_component.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
-              <folding />
+              <caret line="16" column="121" selection-start-line="16" selection-start-column="121" selection-end-line="16" selection-end-column="121" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,20 +126,8 @@
         <entry file="file://$PROJECT_DIR$/dev/jsx/after_game_controls.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="traning_string_generators.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/word_training/traning_string_generators.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-              <folding>
-                <element signature="n#!!doc;n#getWordsWithMistakes#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -183,7 +166,6 @@
         <option value="$PROJECT_DIR$/dev/js/input_parser.js" />
         <option value="$PROJECT_DIR$/test/input_parser.js" />
         <option value="$PROJECT_DIR$/test/first.js" />
-        <option value="$PROJECT_DIR$/dev/js/text.js" />
         <option value="$PROJECT_DIR$/test/utils/localStorage_data_generator.js" />
         <option value="$PROJECT_DIR$/test/utils_test.js" />
         <option value="$PROJECT_DIR$/dev/js/statistics/record_statistics.js" />
@@ -199,22 +181,23 @@
         <option value="$PROJECT_DIR$/dev/jsx/comprehensive_stats/main_stats_panel.jsx" />
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/dev/jsx/text_heat_map.jsx" />
         <option value="$PROJECT_DIR$/dev/jsx/leftSideStatistics.jsx" />
         <option value="$PROJECT_DIR$/dev/js/utils.js" />
         <option value="$PROJECT_DIR$/dev/jsx/after_game_text_stats.jsx" />
-        <option value="$PROJECT_DIR$/dev/js/data_center.js" />
         <option value="$PROJECT_DIR$/dev/js/learning_data_center.js" />
         <option value="$PROJECT_DIR$/dev/js/statistics/statistics_calculation_functions.js" />
         <option value="$PROJECT_DIR$/dev/js/word_training/traning_string_generators.js" />
         <option value="$PROJECT_DIR$/dev/jsx/mistakes_training/main_mistakes_training_component.jsx" />
         <option value="$PROJECT_DIR$/dev/js/test.js" />
-        <option value="$PROJECT_DIR$/dev/jsx/after_game_controls.jsx" />
         <option value="$PROJECT_DIR$/dev/js/raw_data_center.js" />
         <option value="$PROJECT_DIR$/dev/jsx/livestats_component.jsx" />
-        <option value="$PROJECT_DIR$/dev/jsx/main.jsx" />
-        <option value="$PROJECT_DIR$/dev/jsx/playmode_component.jsx" />
+        <option value="$PROJECT_DIR$/dev/js/data_center.js" />
+        <option value="$PROJECT_DIR$/dev/js/text.js" />
+        <option value="$PROJECT_DIR$/dev/jsx/text_heat_map.jsx" />
         <option value="$PROJECT_DIR$/dev/js/text_data_center.js" />
+        <option value="$PROJECT_DIR$/dev/jsx/playmode_component.jsx" />
+        <option value="$PROJECT_DIR$/dev/jsx/after_game_controls.jsx" />
+        <option value="$PROJECT_DIR$/dev/jsx/main.jsx" />
       </list>
     </option>
   </component>
@@ -231,10 +214,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1319" />
-    <option name="height" value="784" />
+    <option name="x" value="-294" />
+    <option name="y" value="-1088" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -284,6 +267,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -538,15 +523,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js.eslint.nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
     <property name="js.eslint.eslintPackage" value="C:\Users\vyt\AppData\Roaming\npm\node_modules\eslint" />
@@ -686,14 +669,20 @@
       <option name="project" value="LOCAL" />
       <updated>1442144017578</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary=",,,">
+      <created>1444023223055</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1444023223055</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1319" height="784" extended-state="6" />
+    <frame x="-294" y="-1088" width="1936" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.225605" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15226555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -756,7 +745,8 @@
     <MESSAGE value="wrote some inside of after_game_text_stats&#10;+other stuff" />
     <MESSAGE value="&quot;&quot;tryign to solve mere conf&quot;&quot;" />
     <MESSAGE value="Wrote some logic for generatign training strings, implamented temporari and basic training functionality&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wrote some logic for generatign training strings, implamented temporari and basic training functionality&#10;" />
+    <MESSAGE value=",,," />
+    <option name="LAST_COMMIT_MESSAGE" value=",,," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -804,13 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7529138">
           <caret line="19" column="5" selection-start-line="8" selection-start-column="4" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6875">
-          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -961,30 +944,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider editor-type-id="MultiMarkdownHtmlEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="MultiMarkdownPreviewEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/jsx/text_heat_map.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="6" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -1062,9 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!doc;n#getWordsWithMistakes#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1072,25 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/jsx/after_game_controls.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/data_center.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="89" selection-start-line="59" selection-start-column="89" selection-end-line="59" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1104,30 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/jsx/playmode_component.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/text_data_center.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/text.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/raw_data_center.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1136,10 +1053,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70757735">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="MultiMarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="MultiMarkdownHtmlEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/data_center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/text.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="121" selection-start-line="16" selection-start-column="121" selection-end-line="16" selection-end-column="121" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/text_data_center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/jsx/playmode_component.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="73" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/jsx/text_heat_map.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/jsx/after_game_controls.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dev/jsx/main.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="188" column="51" selection-start-line="188" selection-start-column="51" selection-end-line="188" selection-end-column="51" />
+          <caret line="175" column="6" selection-start-line="175" selection-start-column="6" selection-end-line="175" selection-end-column="6" />
           <folding />
         </state>
       </provider>

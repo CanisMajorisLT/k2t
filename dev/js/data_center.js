@@ -10,6 +10,7 @@ let textSpecificStats = statistics.textSpecificStats;
 let wordsSpecificStats = statistics.wordsSpecificStats;
 let overAllStats = statistics.overAllStats;
 
+
 /*
  * - sends out data to subscribers when data is updated;
  * - sends data on request (by some query); */
@@ -26,7 +27,7 @@ module.exports = class DataCenter {
 		this.subscribers = [];
 		this.rawData = RawDataCenter;
 		this.learningData = new LearningDataCenter();
-		this.textDataCenter = TextDataCenter;
+		this.textData =  new TextDataCenter();
 		this._data = this.getStatsFromLocalStorage(this.sc.TEXTS_SPECIFIC, this.sc.WORDS_SPECIFIC, this.sc.OVER_ALL); // paimam kol kas i localstorago ir praranimas fjas
 
 	}

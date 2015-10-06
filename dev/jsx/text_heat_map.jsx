@@ -27,7 +27,7 @@ let AfterGameHeatMap = module.exports = React.createClass({
     },
 
     render () {
-        let gameId = this.props.text.gameId;
+        let gameId = this.props.gameId;
         if (this.state.wordData) {
             return (
                 <div>
